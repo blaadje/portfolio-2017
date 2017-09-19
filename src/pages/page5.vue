@@ -54,16 +54,11 @@ export default {
   components: { topHeader, indexBts, arrows },
   methods: {
     updateScroll (e) {
-      if (e.deltaY > 0) {
-        this.name = 'page2'
-        this.$router.push({ name: this.name, params: { animate: true } })
-        document.removeEventListener('wheel', this.updateScroll)
-      }
     }
   },
   activated () {
     this.$nextTick(_ => {
-      document.removeEventListener('wheel', this.updateScroll)
+      document.addEventListener('wheel', this.updateScroll)
       this.$store.dispatch('endPreload')
     })
   }
@@ -151,7 +146,7 @@ $white: #31737f
       outline: none
       width: 100%
       position: relative
-      background: $white
+      background: rgba(white, 0.1)
       border: none
       border-radius: .3em
       margin: 1em 0

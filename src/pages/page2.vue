@@ -116,9 +116,13 @@ import arrows from '@/components/arrows'
 
 export default {
   components: { topHeader, indexBts, arrows },
+  methods: {
+    updateScroll () {
+    }
+  },
   activated () {
     this.$nextTick(_ => {
-      document.removeEventListener('wheel', this.updateScroll)
+      document.addEventListener('wheel', this.updateScroll)
       this.$store.dispatch('endPreload')
     })
   }

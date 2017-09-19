@@ -71,12 +71,12 @@ import arrows from '@/components/arrows'
 export default {
   components: { topHeader, indexBts, arrows },
   methods: {
-    updateScroll (e) {
-      document.removeEventListener('wheel', this.updateScroll)
+    updateScroll () {
     }
   },
   activated () {
     this.$nextTick(_ => {
+      document.addEventListener('wheel', this.updateScroll)
       this.$store.dispatch('endPreload')
     })
   }

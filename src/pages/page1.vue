@@ -31,13 +31,11 @@ export default {
       if (e.deltaY > 0) {
         this.name = 'page2'
         this.$router.push({ name: this.name, params: { animate: true } })
-        document.getElementById('container').remove()
-        document.removeEventListener('wheel', this.updateScroll)
       }
     }
   },
-  beforeDestroy () {
-    document.removeEventListener('wheel', this.updateScroll)
+  destroyed () {
+    window.removeEventListener('wheel', this.updateScroll)
   }
 }
 </script>
@@ -85,6 +83,7 @@ $main: #282b3c
   img.scroll
     animation: bounce 1s infinite
     display: inline-block
+    z-index: 3
     position: absolute
     width: 35px
     bottom: 18%
@@ -101,6 +100,7 @@ $main: #282b3c
   span.scroll
     display: inline-block
     position: absolute
+    z-index: 3
     font-size: .7em
     font-weight: 700
     border-radius: .2em

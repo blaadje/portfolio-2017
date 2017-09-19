@@ -168,12 +168,12 @@ export default {
 
       updateFrustum()
       window.addEventListener('mousemove', onDocumentMouseMove, false)
-      document.addEventListener('wheel', nextPage)
+      document.addEventListener('wheel', nextPage, false)
       window.addEventListener('resize', onWindowResize, false)
     }
 
     function nextPage (e) {
-      document.removeEventListener('wheel', nextPage)
+      document.removeEventListener('wheel', nextPage, false)
       new TWEEN.Tween(camera.position)
       .to({
         x: 23,
@@ -382,6 +382,9 @@ export default {
       pos.applyProjection(cameraViewProjectionMatrix)
       return { x: (pos.x + 1) * window.innerWidth / 2, y: (-pos.y + 1) * window.innerHeight / 2, z: pos.z }
     }
+  },
+  destroyed () {
+    document.querySelector('#container canvas').remove()
   }
 }
 </script>

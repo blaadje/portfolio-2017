@@ -37,16 +37,11 @@ export default {
   components: { topHeader, indexBts, arrows },
   methods: {
     updateScroll (e) {
-      if (e.deltaY > 0) {
-        this.name = 'page2'
-        this.$router.push({ name: this.name, params: { animate: true } })
-        document.removeEventListener('wheel', this.updateScroll)
-      }
     }
   },
   activated () {
     this.$nextTick(_ => {
-      document.removeEventListener('wheel', this.updateScroll)
+      document.addEventListener('wheel', this.updateScroll)
       this.$store.dispatch('endPreload')
     })
   }
