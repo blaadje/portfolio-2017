@@ -1,0 +1,103 @@
+body
+  perspective: 500
+  -webkit-perspective: 500px
+
+$delay: 1s
+$routeDelay: 2s
+
+.slide-right-enter
+  min-height: 100%
+
+.slide-right-enter-active, .slide-right-leave-active
+  transition: opacity 1s
+  transform-style: preserve-3d
+
+.slide-right-enter-active
+  animation: slide-right-in $delay ease-in-out
+  animation-delay: $routeDelay
+
+.slide-right-leave-active
+  animation: slide-right-out $delay ease-in-out
+  animation-delay: $routeDelay
+  transform-origin: right
+
+@keyframes slide-right-in
+  0%
+    transform: translateX(100%)
+    -webkit-transform: translateX(100%)
+  100% 
+    transform: translateX(0)
+    -webkit-transform: translateX(0)
+
+@keyframes slide-right-out
+  0%
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    width: 100%
+    z-index: 999999
+    height: 100vh
+    overflow: hidden
+    transform: translateX(0) rotateY(0deg)
+    -webkit-transform: translateX(0) rotateY(0deg)
+  100%
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    width: 100%
+    z-index: 999999
+    height: 100vh
+    overflow: hidden
+    transform: translateX(-100%) rotateY(-27deg)
+    -webkit-transform: translateX(-100%) rotateY(-27deg)
+
+.slide-left-enter
+  min-height: 100%
+
+.slide-left-enter-active
+  animation: slide-left-in $delay ease-in-out
+  animation-delay: $routeDelay
+
+.slide-left-leave-active
+  animation: slide-left-out $delay ease-in-out
+  animation-delay: $routeDelay
+  transform-origin: left
+  
+
+@keyframes slide-left-in
+  0%
+    transform: translateX(-100%)
+    -webkit-transform: translateX(-100%)
+  100%
+    transform: translateX(0)
+    -webkit-transform: translateX(0)
+
+@keyframes slide-left-out
+  0%
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    width: 100%
+    z-index: 800
+    height: 100vh
+    overflow: hidden
+    transform: translateX(0) rotateY(0deg)
+    -webkit-transform: translateX(0) rotateY(0deg)
+  100%
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    width: 100%
+    z-index: 800
+    height: 100vh
+    overflow: hidden
+    transform: translateX(100%) rotateY(27deg)
+    -webkit-transform: translateX(100%) rotateY(27deg)
