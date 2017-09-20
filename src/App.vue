@@ -138,11 +138,12 @@ $blue: #04a6ab
 
 body
   position: absolute
+  text-rendering: optimizeLegibility !important
   margin: 0
   background: #1c1e27
   overflow-x: hidden
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased !important
+  -moz-osx-font-smoothing: grayscale !important
   font-family: 'Nunito', sans-serif
   padding: 0
 

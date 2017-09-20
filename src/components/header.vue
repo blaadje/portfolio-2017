@@ -27,7 +27,6 @@ export default {
 <style lang="sass">
 $main: #282b3c
 #header
-  font-family: lato, sans-serif
   box-shadow: 0px 3px 38px 0px rgba(0, 0, 0, 0.15)
   height: 100px
   background: rgba($main, 0.8)
