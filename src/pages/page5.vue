@@ -169,7 +169,7 @@ $white: #31737f
       height: 300px
     .send
       padding: 1.5em 0 1.5em 3em
-      background-position: 12% 20px
+      background-position: 12% 23px
       position: relative
       background-size: 25px
       background-image: url(../assets/send.svg)

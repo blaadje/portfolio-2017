@@ -20,7 +20,7 @@ export default {
   left: 0
   text-align: center
   right: 0
-  z-index: 999999
+  z-index: 4
   margin: auto
   .navigation
     border-radius: 50%

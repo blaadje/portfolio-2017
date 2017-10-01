@@ -5,63 +5,72 @@
     .wrapper
       h2 Projects
       #grid
-        .immo
-          .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/immo.png') + ')', backgroundSize: 'cover' }")
-            .firstContent
-              h3 Immo
-              p.
-                L'agence immobilière Immo est un projet de bts qui propose des biens à d'éventuels acheteurs ou locataires.
-            .hiddenContent
-              span Html / jade
-              span Css / Sass
-              span Php / activeRecord
-        .todoList
-          .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/todoList.png') + ')', backgroundSize: 'cover' }")
-            .firstContent
-              h3 TodoList
-              p TodoList est une application de bureau permettant de gerer ses taches journalieres de maniere optimise.
-            .hiddenContent
-              span Vue js
-              span Electron
-              span Nedb
-        .waldata
-          .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/waldata.png') + ')', backgroundSize: 'cover' }")
-            .firstContent
-              h3 Waldata
-              p Waldata propose des logiciels d'aide a la decision en bourse.
-            .hiddenContent
-              span Html
-              span Css
-              span Asp
-        .waltrade
-          .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/waltrade.png') + ')', backgroundSize: 'cover' }")
-            .firstContent
-              h3 Waltrade Institut
-              p.
-                Waltrade propose des formations sur place ou a distance afin de progresser et d'evoluer sur les marches.
-            .hiddenContent
-              span Html
-              span Css
-              span Asp
-        .oldPortfolio
-          .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/oldportfolio.png') + ')', backgroundSize: 'cover' }")
-            .firstContent
-              h3 Portfolio (2016)
-              p.
-                Mon ancien Portfolio qui a ete creer pour le BTS.
-            .hiddenContent
-              span Html
-              span Css
-        .newPortfolio
-          .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/newportfolio.png') + ')', backgroundSize: 'cover' }")
-            .firstContent
-              h3 Portfolio (2017)
-              p.
-                Nouveau Portfolio
-            .hiddenContent
-              span Vue js
-              span Vue router
-              span Vuex
+        router-link(:to="{ name: 'immo' }")
+          .immo
+            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/immo.png') + ')', backgroundSize: 'cover' }")
+              .firstContent
+                h3 Immo
+                p.
+                  L'agence immobilière Immo est un projet de bts qui propose des biens à d'éventuels acheteurs ou locataires.
+              .hiddenContent
+                span Html / jade
+                span Css / Sass
+                span Php / activeRecord
+        router-link(:to="{ name: 'todolist' }")
+          .todoList
+            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/todoList.png') + ')', backgroundSize: 'cover' }")
+              .firstContent
+                h3 TodoList
+                p TodoList est une application de bureau permettant de gerer ses taches journalieres de maniere optimise.
+              .hiddenContent
+                span Vue js
+                span Electron
+                span Nedb
+        router-link(:to="{ name: 'waldata' }")
+          .waldata
+            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/waldata.png') + ')', backgroundSize: 'cover' }")
+              .firstContent
+                h3 Waldata
+                p Waldata propose des logiciels d'aide a la decision en bourse.
+              .hiddenContent
+                span Html
+                span Css
+                span Asp
+        router-link(:to="{ name: 'waltrade' }")
+          .waltrade
+            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/waltrade.png') + ')', backgroundSize: 'cover' }")
+              .firstContent
+                h3 Waltrade Institut
+                p.
+                  Waltrade propose des formations sur place ou a distance afin de progresser et d'evoluer sur les marches.
+              .hiddenContent
+                span Html
+                span Css
+                span Asp
+        router-link(:to="{ name: 'portfolio2016' }")
+          .oldPortfolio
+            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/oldportfolio.png') + ')', backgroundSize: 'cover' }")
+              .firstContent
+                h3 Portfolio (2016)
+                p.
+                  Mon ancien Portfolio qui a ete creer pour le BTS.
+              .hiddenContent
+                span Html
+                span Css
+        router-link(:to="{ name: 'portfolio2016' }")
+          .newPortfolio
+            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/newportfolio.png') + ')', backgroundSize: 'cover' }")
+              .firstContent
+                h3 Portfolio (2017)
+                p.
+                  Nouveau Portfolio
+              .hiddenContent
+                span Vue js
+                span Vue router
+                span Vuex
+      transition(name="slideUp" appear)
+        router-view(:key="$route.fullPath")
+        
 
 </template>
 <script>
@@ -84,13 +93,32 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+
+
 $main: #282b3c
 $text: #807e8e
 $highlight: #00a4a9
 $opacity: 0.85
 
-.content 
-  background: $main
+.content
+  background: $main !important
+.slideUp-leave
+  transform: translateY(100%)
+  background: rgba($main, 0.9) !important  
+.slideUp-enter-active, .slideUp-leave-active
+  transition: transform .6s ease-in-out
+  background: rgba($main, 0.9) !important 
+  
+.slideUp-enter-to
+  animation: slideUp .6s ease-in-out
+  background: rgba($main, 0.9) !important 
+@keyframes slideUp
+  0%
+    transform: translateY(100%)
+    background: rgba($main, 0.9) !important 
+  100% 
+    transform: translateY(0)
+    background: rgba($main, 0.9) !important 
 
 #grid
   width: 80%
@@ -176,7 +204,6 @@ $opacity: 0.85
     height: 725px
     .image
       background-size: cover !important
-      background-position: 50% 50% !important
   .waldata
     height: 330px
     .image
@@ -198,6 +225,7 @@ $opacity: 0.85
     .image
       background-size: cover !important
       background-position: 50% 50% !important
+
 </style>
 
 
