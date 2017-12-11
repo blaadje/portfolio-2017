@@ -5,6 +5,9 @@
         h1 Projet Immobilier "Immo"
         p.
           L'agence immobilière Immo est un projet de bts qui propose des biens à d'éventuels acheteurs ou locataires.
+        span Html
+        span css
+        span PHP
       .socialNetwork
         a(href="")
           img(src="")
@@ -49,5 +52,6 @@ $main: #282b3c
   .wrapper
     width: 1000px
     border: 1px solid white
+
 
 </style>
