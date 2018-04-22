@@ -35,25 +35,25 @@
         .backEnd.cf
           h3 Back-end languages
           .block
-            img(src="../assets/skillgraph.svg").skillgraph
+            img(src="../assets/images/skillgraph.svg").skillgraph
         #block2
           .frameworks
             h3 Main frameworks
             .block
               .item
-                img(src="../assets/vue.png") 
+                img(src="../assets/images/vue.png") 
                 br
                 span Vue JS
               .item
-                img(src="../assets/react.png") 
+                img(src="../assets/images/react.png") 
                 br
                 span React JS
               .item
-                img(src="../assets/laravel.png") 
+                img(src="../assets/images/laravel.png") 
                 br
                 span Laravel
               .item
-                img(src="../assets/semantic.png") 
+                img(src="../assets/images/semantic.png") 
                 br
                 span Semantic
         #block3
@@ -120,11 +120,12 @@ export default {
     updateScroll () {
     }
   },
-  activated () {
-    this.$nextTick(_ => {
-      document.addEventListener('wheel', this.updateScroll)
-      this.$store.dispatch('endPreload')
-    })
+  beforeCreate () {
+    document.removeEventListener('DOMMouseScroll', this.updateScroll)
+  },
+  mounted () {
+    setTimeout(() => document.addEventListener('wheel', this.updateScroll), 5000)
+    this.$store.dispatch('endPreload')
   }
 }
 </script>

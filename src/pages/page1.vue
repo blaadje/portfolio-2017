@@ -11,9 +11,9 @@
             I'm 22 years old, welcome to my Portfolio.
           </p>
         </div>
-        <img class="computer" src="../assets/computer.svg" alt="">
+        <img class="computer" src="../assets/images/computer.svg" alt="">
       </div>
-      <img class="scroll" src="../assets/scroll.svg" alt="">
+      <img class="scroll" src="../assets/images/scroll.svg" alt="">
       <span class="scroll">Scroll down</span>
     </div>
   </div>
@@ -25,18 +25,7 @@ import indexBts from '@/components/indexbuttons'
 import background from '@/components/background'
 
 export default {
-  components: { background, topHeader, indexBts },
-  methods: {
-    updateScroll (e) {
-      if (e.deltaY > 0) {
-        this.name = 'page2'
-        this.$router.push({ name: this.name, params: { animate: true } })
-      }
-    }
-  },
-  destroyed () {
-    window.removeEventListener('wheel', this.updateScroll)
-  }
+  components: { background, topHeader, indexBts }
 }
 </script>
 

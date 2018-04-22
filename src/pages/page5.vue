@@ -10,20 +10,20 @@
         .infos.cf
           .phone
             .imageContainer
-              img(src="../assets/contactPhone.svg").contactPhone
+              img(src="../assets/images/contactPhone.svg").contactPhone
             .text
               h4 Phone
               h5 06 43 18 58 24
           .email
             .imageContainer
-              img(src="../assets/contactEmail.svg").contactEmail
+              img(src="../assets/images/contactEmail.svg").contactEmail
             .text
               h4 Email
               h5 acharlot91@gmail.com
           br
           .city
             .imageContainer
-              img(src="../assets/contactPlace.svg").contactPlace
+              img(src="../assets/images/contactPlace.svg").contactPlace
             .text
               h4 City
               h5 Paris
@@ -42,7 +42,7 @@
         a(href="#").linkedIn
           span in
         a(href="#").dribble
-          img(src="../assets/ball.png")
+          img(src="../assets/images/ball.png")
 </template>
 
 <script>
@@ -160,19 +160,19 @@ $white: #31737f
         -moz-osx-font-smoothing: grayscale
         font-family: 'Nunito', sans-serif
     .name
-      background-image: url(../assets/name.svg)
+      background-image: url(../assets/images/name.svg)
     .email
-      background-image: url(../assets/email.png)
+      background-image: url(../assets/images/email.png)
     .message
-      background-image: url(../assets/message.svg)
+      background-image: url(../assets/images/message.svg)
       resize: none
       height: 300px
     .send
       padding: 1.5em 0 1.5em 3em
-      background-position: 12% 20px
+      background-position: 12% 23px
       position: relative
       background-size: 25px
-      background-image: url(../assets/send.svg)
+      background-image: url(../assets/images/send.svg)
       width: 30%
       &:hover
         cursor: pointer

@@ -12,7 +12,7 @@
           and keep learning new stuffs as much as development as design 
       .experience
         h3 Here are my experiences and diplomas
-        img(src='../assets/experiences.svg').exp
+        img(src='../assets/images/experiences.svg').exp
       .hobbies
         h3 Hobbies
         p.
@@ -25,7 +25,7 @@
             .a
             .b
           span pdf
-          img(src="../assets/arrow.svg")
+          img(src="../assets/images/arrow.svg")
       
 </template>
 <script>
