@@ -47,11 +47,7 @@ const router = new Router({
     { path: '/resume', name: 'page4', component: page4, meta: { preload: true, index: 4 }, params: { animate: false } },
     { path: '/contacts', name: 'page5', component: page5, meta: { preload: true, index: 5 }, params: { animate: false } },
     { path: '*', redirect: '/' }
-  ],
-  mode: 'history',
-  scrollBehavior (to, from, savedPosition) {
-    return { x: 0, y: 0 }
-  }
+  ]
 })
 
 router.beforeEach((to, from, next) => {

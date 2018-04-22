@@ -21,7 +21,6 @@
         <router-view :key="$route.fullPath"></router-view>
       </keep-alive>
     </transition>
-    
   </div>
 </template>
 
@@ -115,76 +114,4 @@ export default {
 }
 </script>
 
-<style lang="sass">
-#app
-  width: 100vw
-  height: 100vh
-  overflow-x: hidden
-
-@import url('https://fonts.googleapis.com/css?family=Nunito:200,300,400')
-@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css')
-@import './assets/animation'
-
-$main: #0d5b6a
-$clearWhite: rgba(white, 0.16)
-$blue: #04a6ab
-
-*
-  box-sizing: border-box
-
-.cf:before,.cf:after
-  content: ''
-  display: table
-.cf:after
-  clear: both
-
-.wrapper
-  width: 1500px
-  margin: auto
-
-body
-  position: absolute
-  text-rendering: optimizeLegibility !important
-  margin: 0
-  background: #1c1e27
-  overflow-x: hidden
-  -webkit-font-smoothing: antialiased !important
-  -moz-osx-font-smoothing: grayscale !important
-  font-family: 'Nunito', sans-serif
-  padding: 0
-
-::-webkit-scrollbar
-  width: 5px
-
-::-webkit-scrollbar-track
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
-  -webkit-border-radius: 3px
-
-::-webkit-scrollbar-thumb
-  -webkit-border-radius: 3px
-  border-radius: 3px
-  background: rgba(white, 0.6)
-  -webkit-box-shadow: inset 0 0 6px rgba(white, 0.5)
-  &:window-inactive
-    background: rgba(white, 0.4)
-
-h1
-  padding: 0
-  margin: 0
-  color: white
-
-h2
-  margin: 1em
-  color: white
-  text-align: center
-  font-size: 3em
-  font-weight: 300
-
-.content
-  width: 100vw
-
-@media screen and (max-width: 1500px)
-  .wrapper
-    width: 1200px
-
-</style>
+<style lang="sass" src="./assets/style/style.sass"/>

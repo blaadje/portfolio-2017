@@ -11,9 +11,9 @@
             I'm 22 years old, welcome to my Portfolio.
           </p>
         </div>
-        <img class="computer" src="../assets/computer.svg" alt="">
+        <img class="computer" src="../assets/images/computer.svg" alt="">
       </div>
-      <img class="scroll" src="../assets/scroll.svg" alt="">
+      <img class="scroll" src="../assets/images/scroll.svg" alt="">
       <span class="scroll">Scroll down</span>
     </div>
   </div>
@@ -35,7 +35,7 @@ export default {
     }
   },
   destroyed () {
-    window.removeEventListener('wheel', this.updateScroll)
+    document.removeEventListener('wheel', this.updateScroll)
   }
 }
 </script>

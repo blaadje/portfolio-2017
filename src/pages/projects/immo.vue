@@ -1,21 +1,22 @@
 <template lang="pug">
-  .content
-    .wrapper
+.overlay
+  .wrapper
+    .content
       .title
         h1 Projet Immobilier "Immo"
         p.
           L'agence immobilière Immo est un projet de bts qui propose des biens à d'éventuels acheteurs ou locataires.
-        span Html
-        span css
-        span PHP
+        .tags
+          span.button Html
+          span.button css
+          span.button PHP
       .socialNetwork
-        a(href="")
+        a(href="").button
           img(src="")
           span Github
-        a(href="")
+        a(href="").button
           img(src="")
           span Facebook
-      .tags
       a(href="").preview Preview
       img(src="")
       .browser
@@ -26,7 +27,6 @@
 </template>
 
 <script>
-
 export default {
   components: {},
   activated () {
@@ -42,16 +42,25 @@ export default {
 // $main: #0d5b6a
 
 $main: #282b3c
-.content 
+.overlay 
   position: absolute
   z-index: 4
   top: 0
+  width: 100%
   height: 100%
   left: 0
   background: rgba($main, 0.95) !important
   .wrapper
     width: 1000px
-    border: 1px solid white
+
+.content
+  margin-top: 100px
+  .title
+    p
+      color: rgba(white, 0.9)
+    .tags
+      span
+
 
 
 </style>

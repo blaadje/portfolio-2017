@@ -13,15 +13,6 @@ export default {
   props: {
     speed: { type: Number }
   },
-  methods: {
-    nextPage (e) {
-      if (e.deltaY > 0) {
-        this.name = 'page2'
-        this.$router.push({ name: this.name, params: { animate: true } })
-        document.removeEventListener('wheel', this.updateScroll)
-      }
-    }
-  },
   activated () {
     let self = this
 
@@ -102,7 +93,7 @@ export default {
       plane.visible = false
       scene.add(plane)
 
-      lines = new THREE.Group()
+      lines = new THREE.Group({ antialias: true })
       scene.add(lines)
 
       mouselines = new THREE.Group()
@@ -168,12 +159,15 @@ export default {
 
       updateFrustum()
       window.addEventListener('mousemove', onDocumentMouseMove, false)
-      document.addEventListener('wheel', nextPage, false)
+      // For Chrome
+      document.addEventListener('wheel', changePage)
+      // For Firefox
+      document.addEventListener('DOMMouseScroll', changePage)
       window.addEventListener('resize', onWindowResize, false)
     }
 
-    function nextPage (e) {
-      document.removeEventListener('wheel', nextPage, false)
+    function changePage (e) {
+      document.removeEventListener('wheel', changePage, false)
       new TWEEN.Tween(camera.position)
       .to({
         x: 23,
@@ -183,13 +177,14 @@ export default {
       .start()
       new TWEEN.Tween(material)
       .to({
-        size: 0}, 1000)
+        size: 10}, 1000)
       .easing(TWEEN.Easing.Sinusoidal.InOut)
       .start()
       setTimeout(_ => {
-        document.querySelector('#container canvas').remove()
-        self.nextPage(e)
-      }, 1000)
+        if (e.deltaY > 0) {
+          self.$router.push({ name: 'page2', params: { animate: true } })
+        }
+      }, 2000)
     }
 
     function onWindowResize () {
@@ -383,8 +378,8 @@ export default {
       return { x: (pos.x + 1) * window.innerWidth / 2, y: (-pos.y + 1) * window.innerHeight / 2, z: pos.z }
     }
   },
-  destroyed () {
-    document.querySelector('#container canvas').remove()
+  beforeDestroy () {
+    document.querySelector('#container').remove()
   }
 }
 </script>

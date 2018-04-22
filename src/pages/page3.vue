@@ -7,7 +7,7 @@
       #grid
         router-link(:to="{ name: 'immo' }")
           .immo
-            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/immo.png') + ')', backgroundSize: 'cover' }")
+            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/images/immo.png') + ')', backgroundSize: 'cover' }")
               .firstContent
                 h3 Immo
                 p.
@@ -18,7 +18,7 @@
                 span Php / activeRecord
         router-link(:to="{ name: 'todolist' }")
           .todoList
-            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/todoList.png') + ')', backgroundSize: 'cover' }")
+            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/images/todolist.png') + ')', backgroundSize: 'cover' }")
               .firstContent
                 h3 TodoList
                 p TodoList est une application de bureau permettant de gerer ses taches journalieres de maniere optimise.
@@ -28,7 +28,7 @@
                 span Nedb
         router-link(:to="{ name: 'waldata' }")
           .waldata
-            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/waldata.png') + ')', backgroundSize: 'cover' }")
+            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/images/waldata.png') + ')', backgroundSize: 'cover' }")
               .firstContent
                 h3 Waldata
                 p Waldata propose des logiciels d'aide a la decision en bourse.
@@ -38,7 +38,7 @@
                 span Asp
         router-link(:to="{ name: 'waltrade' }")
           .waltrade
-            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/waltrade.png') + ')', backgroundSize: 'cover' }")
+            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/images/waltrade.png') + ')', backgroundSize: 'cover' }")
               .firstContent
                 h3 Waltrade Institut
                 p.
@@ -49,7 +49,7 @@
                 span Asp
         router-link(:to="{ name: 'portfolio2016' }")
           .oldPortfolio
-            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/oldportfolio.png') + ')', backgroundSize: 'cover' }")
+            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/images/oldportfolio.png') + ')', backgroundSize: 'cover' }")
               .firstContent
                 h3 Portfolio (2016)
                 p.
@@ -59,7 +59,7 @@
                 span Css
         router-link(:to="{ name: 'portfolio2016' }")
           .newPortfolio
-            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/newportfolio.png') + ')', backgroundSize: 'cover' }")
+            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('../assets/images/newportfolio.png') + ')', backgroundSize: 'cover' }")
               .firstContent
                 h3 Portfolio (2017)
                 p.
@@ -79,13 +79,9 @@ import indexBts from '@/components/indexbuttons'
 import arrows from '@/components/arrows'
 export default {
   components: { topHeader, indexBts, arrows },
-  methods: {
-    updateScroll () {
-    }
-  },
   activated () {
     this.$nextTick(_ => {
-      document.addEventListener('wheel', this.updateScroll)
+      // document.addEventListener('wheel', this.updateScroll)
       this.$store.dispatch('endPreload')
     })
   }
@@ -153,7 +149,7 @@ $opacity: 0.85
       width: 100%
       height: 16.96px
       content: ''
-      background: linear-gradient(to left, rgba($main, $opacity), rgba($main, $opacity)), url('../assets/topBar.png')
+      background: linear-gradient(to left, rgba($main, $opacity), rgba($main, $opacity)), url('../assets/images/topBar.png')
       background-size: cover
     .image
       transition: all .6s
