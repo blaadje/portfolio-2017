@@ -79,7 +79,7 @@ import indexBts from '@/components/indexbuttons'
 import arrows from '@/components/arrows'
 export default {
   components: { topHeader, indexBts, arrows },
-  activated () {
+  mounted () {
     this.$nextTick(_ => {
       // document.addEventListener('wheel', this.updateScroll)
       this.$store.dispatch('endPreload')

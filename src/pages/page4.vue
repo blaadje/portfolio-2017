@@ -39,7 +39,7 @@ export default {
     updateScroll (e) {
     }
   },
-  activated () {
+  mounted () {
     this.$nextTick(_ => {
       document.addEventListener('wheel', this.updateScroll)
       this.$store.dispatch('endPreload')

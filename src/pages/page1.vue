@@ -30,7 +30,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-// $main: #0d5b6a
 $main: #282b3c
 .content 
   position: relative
