@@ -10,9 +10,9 @@
       @before-enter="beforeEnter"
       @enter="enter"
     >
-      <keep-alive>
+      <!-- <keep-alive> -->
         <router-view :key="$route.fullPath"></router-view>
-      </keep-alive>
+      <!-- </keep-alive> -->
     </transition>
     <transition v-else
       :name="transitionName + 'test'"

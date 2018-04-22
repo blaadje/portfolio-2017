@@ -120,8 +120,11 @@ export default {
     updateScroll () {
     }
   },
+  beforeCreate () {
+    document.removeEventListener('DOMMouseScroll', this.updateScroll)
+  },
   mounted () {
-    document.addEventListener('wheel', this.updateScroll)
+    setTimeout(() => document.addEventListener('wheel', this.updateScroll), 5000)
     this.$store.dispatch('endPreload')
   }
 }

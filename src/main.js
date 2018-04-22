@@ -15,7 +15,6 @@ const page3 = () => import('./pages/page3')
 const page4 = () => import('./pages/page4')
 const page5 = () => import('./pages/page5')
 
-// import immo from './pages/projects/immo'
 const immo = () => import('./pages/projects/immo')
 const todolist = () => import('./pages/projects/todolist')
 const waldata = () => import('./pages/projects/waldata')

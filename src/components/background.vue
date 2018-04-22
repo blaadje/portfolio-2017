@@ -13,7 +13,7 @@ export default {
   props: {
     speed: { type: Number }
   },
-  activated () {
+  mounted () {
     let self = this
 
     var container
@@ -168,6 +168,7 @@ export default {
 
     function changePage (e) {
       document.removeEventListener('wheel', changePage, false)
+      document.addEventListener('DOMMouseScroll', changePage)
       new TWEEN.Tween(camera.position)
       .to({
         x: 23,
@@ -378,8 +379,8 @@ export default {
       return { x: (pos.x + 1) * window.innerWidth / 2, y: (-pos.y + 1) * window.innerHeight / 2, z: pos.z }
     }
   },
-  beforeDestroy () {
-    document.querySelector('#container').remove()
+  destroyed () {
+    document.querySelector('#container canvas').remove
   }
 }
 </script>
