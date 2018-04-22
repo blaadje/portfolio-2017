@@ -168,7 +168,7 @@ export default {
 
     function changePage (e) {
       document.removeEventListener('wheel', changePage, false)
-      document.addEventListener('DOMMouseScroll', changePage)
+      document.removeEventListener('DOMMouseScroll', changePage)
       new TWEEN.Tween(camera.position)
       .to({
         x: 23,

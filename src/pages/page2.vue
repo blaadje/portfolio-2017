@@ -122,10 +122,14 @@ export default {
   },
   beforeCreate () {
     document.removeEventListener('DOMMouseScroll', this.updateScroll)
+    document.removeEventListener('wheel', this.updateScroll)
   },
   mounted () {
-    setTimeout(() => document.addEventListener('wheel', this.updateScroll), 5000)
     this.$store.dispatch('endPreload')
+    setTimeout(() => {
+      document.addEventListener('DOMMouseScroll', this.updateScroll)
+      document.addEventListener('wheel', this.updateScroll)
+    }, 5000)
   }
 }
 </script>
