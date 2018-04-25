@@ -167,8 +167,13 @@ export default {
     }
 
     function changePage (e) {
+      if (e.deltaY < 0) {
+        return
+      }
+
       document.removeEventListener('wheel', changePage, false)
       document.removeEventListener('DOMMouseScroll', changePage)
+
       new TWEEN.Tween(camera.position)
       .to({
         x: 23,
@@ -181,10 +186,9 @@ export default {
         size: 10}, 1000)
       .easing(TWEEN.Easing.Sinusoidal.InOut)
       .start()
+
       setTimeout(_ => {
-        if (e.deltaY > 0) {
-          self.$router.push({ name: 'page2', params: { animate: true } })
-        }
+        self.$router.push({ name: 'page2', params: { animate: true } })
       }, 2000)
     }
 

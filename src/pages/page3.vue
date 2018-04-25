@@ -81,7 +81,6 @@ export default {
   components: { topHeader, indexBts, arrows },
   mounted () {
     this.$nextTick(_ => {
-      // document.addEventListener('wheel', this.updateScroll)
       this.$store.dispatch('endPreload')
     })
   }
