@@ -65,7 +65,7 @@
                   span.pourcentage 65%
                   span.text Photoshop
                 .rect.sketch
-                  span.pourcentage 33%
+                  span.pourcentage 90%
                   span.text Sketch
                 .rect.illustrator
                   span.pourcentage 51%
@@ -77,18 +77,15 @@
                 .ide
                   h1.title IDE
                   .textContent
-                    span atom
                     span vscode
-                    br
                     span eclipse
                     span vs studio
-                    br
                     span pyscripter
                 .platforms
                   h1.title Platforms
                   .textContent
-                    span mac os
-                    span windows
+                    span arch Linux
+                    span Mac os
               .right
                 .micro
                   h1.title Micro frameworks
@@ -315,7 +312,7 @@ $highlight: #00a4a9
       .photoshop
         height: 65% !important
       .sketch
-        height: 33% !important
+        height: 90% !important
       .illustrator
         height: 51% !important
       &:before
