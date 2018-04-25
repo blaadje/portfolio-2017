@@ -6,7 +6,11 @@ import arrows from '@/components/arrows'
 
 export default {
   components: { topHeader, indexBts, arrows },
-  methods: { updateScroll () {} },
+  methods: {
+    updateScroll () {
+      return
+    }
+  },
   beforeCreate () {
     document.removeEventListener('DOMMouseScroll', this.updateScroll)
     document.removeEventListener('wheel', this.updateScroll)
