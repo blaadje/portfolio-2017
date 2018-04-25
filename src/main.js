@@ -26,6 +26,7 @@ Vue.use(Router)
 Vue.use(VueThreejs)
 
 const router = new Router({
+  mode: 'history',
   routes: [
     { path: '/', name: 'page1', component: page1, meta: { preload: false, index: 1 } },
     { path: '/skills', name: 'page2', component: page2, meta: { preload: true, index: 2 }, params: { animate: false } },
