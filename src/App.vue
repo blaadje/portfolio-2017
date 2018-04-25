@@ -1,29 +1,4 @@
-<template>
-  <div id="app">
-    <preloader-component/>
-    <buttonnav/>
-    <transition v-if="$route.params.animate"
-      :name="transitionName"
-      @before-leave="beforeLeave"
-      @after-leave="afterLeave"
-
-      @before-enter="beforeEnter"
-      @enter="enter"
-    >
-      <!-- <keep-alive> -->
-        <router-view :key="$route.fullPath"></router-view>
-      <!-- </keep-alive> -->
-    </transition>
-    <transition v-else
-      :name="transitionName + 'test'"
-    >
-      <keep-alive >
-        <router-view :key="$route.fullPath"></router-view>
-      </keep-alive>
-    </transition>
-  </div>
-</template>
-
+<style lang="sass" src="./assets/style/style.sass"></style>
 <script>
 import Velocity from 'velocity-animate'
 import buttonnav from './components/indexbuttons'
@@ -104,14 +79,34 @@ export default {
   },
   watch: {
     '$route' (to, from) {
-      const toIndex = to.meta.index
-      const fromIndex = from.meta.index
       if (from.meta.index) {
-        this.transitionName = toIndex > fromIndex ? 'slide-right' : 'slide-left'
+        this.transitionName = to.meta.index > from.meta.index ? 'slide-right' : 'slide-left'
       }
     }
   }
 }
 </script>
+<template>
+  <div id="app">
+    <preloader-component/>
+    <buttonnav/>
+    <transition v-if="$route.params.animate"
+      :name="transitionName"
+      @before-leave="beforeLeave"
+      @after-leave="afterLeave"
 
-<style lang="sass" src="./assets/style/style.sass"/>
+      @before-enter="beforeEnter"
+      @enter="enter"
+    >
+      <router-view :key="$route.fullPath"></router-view>
+    </transition>
+    <transition v-else
+      :name="transitionName + 'test'"
+    >
+      <keep-alive >
+        <router-view :key="$route.fullPath"></router-view>
+      </keep-alive>
+    </transition>
+  </div>
+</template>
+
