@@ -26,21 +26,7 @@
 
 </template>
 
-<script>
-export default {
-  components: {},
-  activated () {
-    this.$nextTick(_ => {
-      document.addEventListener('wheel', this.updateScroll)
-      this.$store.dispatch('endPreload')
-    })
-  }
-}
-</script>
-
 <style lang="sass" scoped>
-// $main: #0d5b6a
-
 $main: #282b3c
 .overlay 
   position: absolute
@@ -60,7 +46,4 @@ $main: #282b3c
       color: rgba(white, 0.9)
     .tags
       span
-
-
-
 </style>

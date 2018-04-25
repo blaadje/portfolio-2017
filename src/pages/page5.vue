@@ -39,7 +39,7 @@
           button(type="submit").send Send
       .sociable
         h3 Let's be sociable
-        a(href="#").linkedIn
+        a(href="https://www.linkedin.com/in/alexandre-charlot-38698b151/", target='_blank').linkedIn
           span in
         a(href="#").dribble
           img(src="../assets/images/ball.png")
