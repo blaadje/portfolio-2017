@@ -9,18 +9,18 @@ import VueThreejs from 'vue-threejs/package'
 
 Vue.config.productionTip = false
 
-const page1 = () => import('./pages/page1')
-const page2 = () => import('./pages/page2')
-const page3 = () => import('./pages/page3')
-const page4 = () => import('./pages/page4')
-const page5 = () => import('./pages/page5')
+const page1 = () => import('./pages/Home')
+const page2 = () => import('./pages/Skills')
+const page3 = () => import('./pages/Projects')
+const page4 = () => import('./pages/Resume')
+const page5 = () => import('./pages/Contact')
 
-const immo = () => import('./pages/projects/immo')
-const todolist = () => import('./pages/projects/todolist')
-const waldata = () => import('./pages/projects/waldata')
-const waltrade = () => import('./pages/projects/waltrade')
-const portfolio2016 = () => import('./pages/projects/portfolio2016')
-const portfolio2017 = () => import('./pages/projects/portfolio2017')
+const immo = () => import('./pages/Projects/items/immo')
+const todolist = () => import('./pages/Projects/items/todolist')
+const waldata = () => import('./pages/Projects/items/waldata')
+const waltrade = () => import('./pages/Projects/items/waltrade')
+const portfolio2016 = () => import('./pages/Projects/items/portfolio2016')
+const portfolio2017 = () => import('./pages/Projects/items/portfolio2017')
 
 Vue.use(Router)
 Vue.use(VueThreejs)
