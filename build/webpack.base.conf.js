@@ -40,6 +40,10 @@ module.exports = {
         }
       },
       {
+        test: /\.(pdf)$/,
+        loader: 'file-loader'
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig

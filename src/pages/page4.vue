@@ -18,14 +18,16 @@
         p.
           I play piano (classical, synth, electronic organ), guitar (folk, electric) and drums occasiannaly.
           I love to compose acoustical or electronic musique too
+      
       .download
         p You can download my resume's printable version here :
-        .button
-          .squares
-            .a
-            .b
-          span pdf
-          img(src="../assets/images/arrow.svg")
+        a(target="_blank", :href="require('../assets/moncv2.pdf')")
+          .button
+            .squares
+              .a
+              .b
+            span pdf
+            img(src="../assets/images/arrow.svg")
       
 </template>
 <script>
