@@ -1,4 +1,4 @@
-<style lang="sass" scoped src="./style.sass"></style>
+<style lang="scss" scoped src="./style.scss"></style>
 <script>
 export default {
   props: {
@@ -10,28 +10,33 @@ export default {
   }
 }
 </script>
-<template lang="pug">
-.overlay
-  .wrapper
-    .content
-      .title
-        h1 {{ title }}
-        p.
-          {{ description }}
-        .tags(v-for='item in tags')
-          span.button {{ item }}
-      .socialNetwork
-        a(:href="github").button
-          img(src="")
-          span Github
-        a(:href="facebook").button
-          img(src="")
-          span Facebook
-      a(href="").preview Preview
-      img(src="")
-      .browser
-        h2 browser compatibility
-        img(src="")
-        img(src="")
-
+<template>
+  <div class="Template-overlay">
+    <div class="Template-wrapper">
+      <div class="Template-header">
+        <h1>{{ title }}</h1>
+        <p>{{ description }}</p>
+        <div class="Header-tags">
+          <span class="Template-button Tags" v-for="(item, key) in tags" :key="key">{{ item }}</span>
+        </div>
+        <a href="" class="Template-button Preview">Preview</a>
+      </div>
+      <div class="Template-socialNetwork">
+        <a :href="github" class="Template-button Github">
+          <img src="" />
+          <span>Github</span>
+        </a>
+        <a :href="facebook" class="Template-button Facebook">
+          <img src="" />
+          <span>Facebook</span>
+        </a>
+      </div>
+      <img src="">
+      <div class="Template-browser">
+        <p>Browser compatibility</p>
+        <img src="" />
+        <img src="" />
+      </div>
+    </div>
+  </div>
 </template>

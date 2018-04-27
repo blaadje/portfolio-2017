@@ -1,0 +1,70 @@
+$main: #282b3c;
+
+.Template-overlay {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  background: rgba($main, 0.95) !important;
+}
+
+.Tags {
+  text-transform: uppercase;
+  margin-right: 1em;
+  padding: .5em 1em !important;
+  font-size: .7em;
+}
+
+.Preview {
+  margin-top: 1em;
+  background: #14A4AA !important;
+}
+
+.Template-wrapper {
+  width: 1000px;
+  margin: auto;
+  padding-top: 100px;
+  position: relative;
+  
+  .Template-header {
+    p {
+      font-size: 1.2em;
+      color: rgba(white, 0.6);
+    }
+  }
+
+  .Template-socialNetwork {
+    position: absolute;
+    right: 0px;
+    top: 100px;
+
+    .Github {
+      background: #64CFFA !important;
+    }
+
+    .Facebook {
+      margin-left: .5em;
+      background: #3759A0 !important;
+    }
+  }
+
+  .Template-button {
+    display: inline-block;
+    color: white;
+    padding: .5em 1.5em;
+    text-decoration: none;
+    border-radius: .2em .2em .1em .1em;
+    background: #4A4E5B;
+    border-bottom: 4px solid rgba(#000, 0.3);
+  }
+
+  .Template-browser {
+    p {
+      color: white;
+      font-size: 2em;
+    }
+  }
+}
+  
