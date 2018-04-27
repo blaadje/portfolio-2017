@@ -1,8 +1,3 @@
-<template>
-  <div id="container">
-  </div>
-</template>
-
 <script>
 var THREE = require('three/three.min.js')
 var TWEEN = require('@tweenjs/tween.js')
@@ -13,9 +8,41 @@ export default {
   props: {
     speed: { type: Number }
   },
-  mounted () {
-    let self = this
+  data () {
+    return {
+      isChanged: false
+    }
+  },
+  methods: {
+    changePage (e, camera, material) {
+      if (e.deltaY < 0 || this.isChanged) {
+        return
+      }
 
+      e.preventDefault()
+      e.stopPropagation()
+
+      new TWEEN.Tween(camera.position)
+      .to({
+        x: 23,
+        y: 324,
+        z: -100}, 1000)
+      .easing(TWEEN.Easing.Sinusoidal.InOut)
+      .start()
+      new TWEEN.Tween(material)
+      .to({
+        size: 10}, 1000)
+      .easing(TWEEN.Easing.Sinusoidal.InOut)
+      .start()
+
+      this.isChanged = true
+
+      setTimeout(_ => {
+        this.$router.push({ name: 'page2', params: { animate: true } })
+      }, 2000)
+    }
+  },
+  mounted () {
     var container
     var camera, scene, renderer, particles, lines, mouselines, controls, material, line
     var plane, frustum, cameraViewProjectionMatrix
@@ -159,37 +186,7 @@ export default {
 
       updateFrustum()
       window.addEventListener('mousemove', onDocumentMouseMove, false)
-      // For Chrome
-      document.addEventListener('wheel', changePage)
-      // For Firefox
-      document.addEventListener('DOMMouseScroll', changePage)
       window.addEventListener('resize', onWindowResize, false)
-    }
-
-    function changePage (e) {
-      if (e.deltaY < 0) {
-        return
-      }
-
-      document.removeEventListener('wheel', changePage, false)
-      document.removeEventListener('DOMMouseScroll', changePage)
-
-      new TWEEN.Tween(camera.position)
-      .to({
-        x: 23,
-        y: 324,
-        z: -100}, 1000)
-      .easing(TWEEN.Easing.Sinusoidal.InOut)
-      .start()
-      new TWEEN.Tween(material)
-      .to({
-        size: 10}, 1000)
-      .easing(TWEEN.Easing.Sinusoidal.InOut)
-      .start()
-
-      setTimeout(_ => {
-        self.$router.push({ name: 'page2', params: { animate: true } })
-      }, 2000)
     }
 
     function onWindowResize () {
@@ -382,13 +379,21 @@ export default {
       pos.applyProjection(cameraViewProjectionMatrix)
       return { x: (pos.x + 1) * window.innerWidth / 2, y: (-pos.y + 1) * window.innerHeight / 2, z: pos.z }
     }
+
+    document.addEventListener('wheel', event => this.changePage(event, camera, material))
+    document.addEventListener('DOMMouseScroll', event => this.changePage(event, camera, material))
   },
-  destroyed () {
+  beforeDestroy () {
+    document.removeEventListener('wheel', this.changePage, false)
+    document.removeEventListener('DOMMouseScroll', this.changePage, false)
     document.querySelector('#container canvas').remove
   }
 }
 </script>
-
+<template>
+  <div id="container">
+  </div>
+</template>
 <style lang="sass">
 canvas
   background: transparent

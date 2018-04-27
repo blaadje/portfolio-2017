@@ -12,14 +12,15 @@ export default {
     }
   },
   beforeCreate () {
-    document.removeEventListener('DOMMouseScroll', this.updateScroll)
-    document.removeEventListener('wheel', this.updateScroll)
+    document.removeEventListener('DOMMouseScroll', e => e.preventDefault())
+    document.removeEventListener('wheel', e => e.preventDefault())
   },
   mounted () {
     this.$store.dispatch('endPreload')
+    console.log('mounted')
     setTimeout(() => {
-      document.addEventListener('DOMMouseScroll', this.updateScroll)
-      document.addEventListener('wheel', this.updateScroll)
+      document.addEventListener('DOMMouseScroll', this.updateScroll, false)
+      document.addEventListener('wheel', this.updateScroll, false)
     }, 5000)
   }
 }
