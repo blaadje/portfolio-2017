@@ -9,12 +9,13 @@ $opacity: 0.85
   transform: translateY(100%)
   background: rgba($main, 0.9) !important  
 .slideUp-enter-active, .slideUp-leave-active
-  transition: transform .6s ease-in-out
+  transition: transform .6s linear
   background: rgba($main, 0.9) !important 
   
 .slideUp-enter-to
-  animation: slideUp .6s ease-in-out
+  animation: slideUp .6s linear
   background: rgba($main, 0.9) !important 
+  
 @keyframes slideUp
   0%
     transform: translateY(100%)

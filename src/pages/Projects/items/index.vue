@@ -1,14 +1,10 @@
 <script>
 import Templates from './Templates'
-import datas from './Templates/projectItems'
+import datas from './projectItems'
 
 export default {
   components: { Templates },
-  data () {
-    return {
-      datas
-    }
-  }
+  data () { return { datas } }
 }
 </script>
 <template>
@@ -19,5 +15,6 @@ export default {
     :tags="datas[this.$route.name].tags"
     :github="datas[this.$route.name].github"
     :facebook="datas[this.$route.name].facebook"
+    :src="datas[this.$route.name].src"
   />
 </template>
