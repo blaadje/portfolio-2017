@@ -37,9 +37,9 @@ export default {
 
       this.isChanged = true
 
-      setTimeout(_ => {
+      setTimeout(() => {
         this.$router.push({ name: 'page2', params: { animate: true } })
-      }, 2000)
+      }, 1000)
     }
   },
   mounted () {
@@ -383,15 +383,15 @@ export default {
     document.addEventListener('wheel', event => this.changePage(event, camera, material))
     document.addEventListener('DOMMouseScroll', event => this.changePage(event, camera, material))
   },
-  beforeDestroy () {
-    document.removeEventListener('wheel', this.changePage, false)
-    document.removeEventListener('DOMMouseScroll', this.changePage, false)
+  destroyed () {
     document.querySelector('#container canvas').remove
+    document.removeEventListener('wheel', event => this.changePage())
+    document.removeEventListener('DOMMouseScroll', event => this.changePage())
   }
 }
 </script>
 <template>
-  <div id="container">
+  <div id="container" @scroll="() => console.log('test')">
   </div>
 </template>
 <style lang="sass">
