@@ -7,7 +7,8 @@ export default {
     tags: { type: Array.String },
     github: { type: String },
     facebook: { type: String },
-    src: { type: String }
+    src: { type: String },
+    preview: { type: String }
   }
 }
 </script>
@@ -21,7 +22,7 @@ export default {
         <div class="Header-tags">
           <span class="Template-button Tags" v-for="(item, key) in tags" :key="key">{{ item }}</span>
         </div>
-        <a href="" class="Template-button Preview">Preview</a>
+        <a :href="preview" target="_blank" class="Template-button Preview">Preview</a>
       </div>
       <div class="Template-socialNetwork">
         <a :href="github" class="Template-button Github" target="_blank">
@@ -34,20 +35,17 @@ export default {
         </a>
       </div>
       
-      <div 
-        v-if="src"
-        :style="{ 
-          background: 'linear-gradient(to left, rgba(39, 42, 59, 0.6), rgba(39, 42, 59, 0.6)), url('+ require(`@assets/images/${src}`) + ')',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat'
-        }" 
-        class="Template-image" 
-      />f
-      <div class="Template-browser">
+      <img 
+        :src="require(`@assets/images/${src}`)"
+        class="Template-image"
+        alt=""
+      >
+
+      <!-- <div class="Template-browser">
         <p>Browser compatibility</p>
         <img src="" />
         <img src="" />
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

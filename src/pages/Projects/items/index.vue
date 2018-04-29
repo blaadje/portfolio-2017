@@ -16,5 +16,6 @@ export default {
     :github="datas[this.$route.name].github"
     :facebook="datas[this.$route.name].facebook"
     :src="datas[this.$route.name].src"
+    :preview="datas[this.$route.name].preview"
   />
 </template>

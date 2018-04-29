@@ -4,25 +4,18 @@ $highlight: #00a4a9
 $opacity: 0.85
 
 .content
-  background: $main !important
-.slideUp-leave
-  transform: translateY(100%)
   background: rgba($main, 0.9) !important  
-.slideUp-enter-active, .slideUp-leave-active
-  transition: transform .6s linear
-  background: rgba($main, 0.9) !important 
   
-.slideUp-enter-to
-  animation: slideUp .6s linear
-  background: rgba($main, 0.9) !important 
+.slide-enter-active
+  animation: slideUp .6s ease
   
 @keyframes slideUp
   0%
+    opacity: 0
     transform: translateY(100%)
-    background: rgba($main, 0.9) !important 
   100% 
+    opacity: 1
     transform: translateY(0)
-    background: rgba($main, 0.9) !important 
 
 #grid
   width: 80%
