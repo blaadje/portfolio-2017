@@ -10,12 +10,8 @@ const page3 = () => import('./pages/Projects')
 const page4 = () => import('./pages/Resume')
 const page5 = () => import('./pages/Contact')
 
-const immo = () => import('./pages/Projects/items/immo')
-const todolist = () => import('./pages/Projects/items/todolist')
-const waldata = () => import('./pages/Projects/items/waldata')
-const waltrade = () => import('./pages/Projects/items/waltrade')
-const portfolio2016 = () => import('./pages/Projects/items/portfolio2016')
-const portfolio2017 = () => import('./pages/Projects/items/portfolio2017')
+// import PageItem from './pages/Projects/items'
+const PageItem = () => import('./pages/Projects/items')
 
 const router = new Router({
   mode: 'history',
@@ -29,12 +25,12 @@ const router = new Router({
       meta: { preload: true, index: 3 },
       params: { animate: false },
       children: [
-        { path: 'immo', name: 'immo', component: immo, meta: { preload: true } },
-        { path: 'todolist', name: 'todolist', component: todolist, meta: { preload: true } },
-        { path: 'waldata', name: 'waldata', component: waldata, meta: { preload: true } },
-        { path: 'waltrade', name: 'waltrade', component: waltrade, meta: { preload: true } },
-        { path: 'portfolio2016', name: 'portfolio2016', component: portfolio2016, meta: { preload: true } },
-        { path: 'portfolio2017', name: 'portfolio2017', component: portfolio2017, meta: { preload: true } }
+        { path: 'immo', name: 'immo', component: PageItem, meta: { preload: true } },
+        { path: 'todolist', name: 'todolist', component: PageItem, meta: { preload: true } },
+        { path: 'waldata', name: 'waldata', component: PageItem, meta: { preload: true } },
+        { path: 'waltrade', name: 'waltrade', component: PageItem, meta: { preload: true } },
+        { path: 'portfolio2016', name: 'portfolio2016', component: PageItem, meta: { preload: true } },
+        { path: 'portfolio2017', name: 'portfolio2017', component: PageItem, meta: { preload: true } }
       ]
     },
     { path: '/resume', name: 'page4', component: page4, meta: { preload: true, index: 4 }, params: { animate: false } },

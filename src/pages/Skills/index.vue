@@ -6,22 +6,8 @@ import arrows from '@/components/arrows'
 
 export default {
   components: { topHeader, indexBts, arrows },
-  methods: {
-    updateScroll () {
-      return
-    }
-  },
-  beforeCreate () {
-    document.removeEventListener('DOMMouseScroll', e => e.preventDefault())
-    document.removeEventListener('wheel', e => e.preventDefault())
-  },
   mounted () {
     this.$store.dispatch('endPreload')
-    console.log('mounted')
-    setTimeout(() => {
-      document.addEventListener('DOMMouseScroll', this.updateScroll, false)
-      document.addEventListener('wheel', this.updateScroll, false)
-    }, 5000)
   }
 }
 </script>
