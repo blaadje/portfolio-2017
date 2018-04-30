@@ -21,7 +21,7 @@ export default {
       h2 Let's get in touch
       .contact
         h3 Contact informations
-        p If you like my work, why not contact on me for your next project?
+        p If you like my work, why not contact me for your next project ?
         .infos.cf
           .phone
             .imageContainer

@@ -31,8 +31,8 @@ export default {
       .hobbies
         h3 Hobbies
         p.
-          I play piano (classical, synth, electronic organ), guitar (folk, electric) and drums occasiannaly.
-          I love to compose acoustical or electronic musique too
+          I play piano (classical, synth, electronic organ), guitar (folk, electric) and drums occasionally.
+          I love to compose acoustic or electronic music too
       
       .download
         p You can download my resume's printable version here :

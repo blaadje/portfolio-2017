@@ -10,7 +10,6 @@ const page3 = () => import('./pages/Projects')
 const page4 = () => import('./pages/Resume')
 const page5 = () => import('./pages/Contact')
 
-// import PageItem from './pages/Projects/items'
 const PageItem = () => import('./pages/Projects/items')
 
 const router = new Router({
