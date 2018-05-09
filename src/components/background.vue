@@ -5,6 +5,8 @@ const THREE = require('three/three.min.js')
 const TWEEN = require('@tweenjs/tween.js')
 const TrackballControls = require('three-trackballcontrols')
 
+let listener
+
 export default {
   props: {
     speed: { type: Number }
@@ -16,6 +18,7 @@ export default {
   },
   methods: {
     changePage (e, camera, material) {
+      console.log(e)
       if (e.deltaY < 0 || this.isChanged) {
         return
       }
@@ -381,19 +384,21 @@ export default {
       return { x: (pos.x + 1) * window.innerWidth / 2, y: (-pos.y + 1) * window.innerHeight / 2, z: pos.z }
     }
 
-    document.addEventListener('wheel', event => this.changePage(event, camera, material))
-    document.addEventListener('DOMMouseScroll', event => this.changePage(event, camera, material))
+    listener = (event) => {
+      this.changePage(event, camera, material)
+    }
+
+    document.addEventListener('wheel', listener)
+    document.addEventListener('DOMMouseScroll', listener)
   },
   destroyed () {
+    this.isChanged = true
     document.querySelector('#container canvas').remove
-    document.removeEventListener('wheel', event => this.changePage())
-    document.removeEventListener('DOMMouseScroll', event => this.changePage())
   }
 }
 </script>
 <template>
-  <div id="container" @scroll="() => console.log('test')">
-  </div>
+  <div id="container" />
 </template>
 <style lang="sass">
 canvas

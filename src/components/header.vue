@@ -5,13 +5,13 @@
         <p class="title">Charlot Alexandre</p>
         <p class="subTitle">Front-end developer</p>
       </div>
-    <nav>
-      <router-link :to="{ name: 'page1', params: { animate: true } }">Home</router-link>
-      <router-link :to="{ name: 'page2', params: { animate: true } }">Skills</router-link>
-      <router-link :to="{ name: 'page3', params: { animate: true } }">Projects</router-link>
-      <router-link :to="{ name: 'page4', params: { animate: true } }">Resume</router-link>
-      <router-link :to="{ name: 'page5', params: { animate: true } }">Contacts</router-link>
-    </nav>
+      <nav>
+        <router-link :to="{ name: 'page1', params: { animate: true } }">Home</router-link>
+        <router-link :to="{ name: 'page2', params: { animate: true } }">Skills</router-link>
+        <router-link :to="{ name: 'page3', params: { animate: true } }">Projects</router-link>
+        <router-link :to="{ name: 'page4', params: { animate: true } }">Resume</router-link>
+        <router-link :to="{ name: 'page5', params: { animate: true } }">Contacts</router-link>
+      </nav>
     </div>
   </div>
 </template>

@@ -15,6 +15,7 @@ export default {
       transitionName: 'slide-right'
     }
   },
+
   methods: {
     beforeLeave (el) {
       if (this.$route.params.animate) {
@@ -88,9 +89,15 @@ export default {
 </script>
 <template>
   <div id="app">
-    <preloader-component/>
-    <buttonnav/>
-    <transition v-if="$route.params.animate"
+    <preloader-component />
+    <buttonnav />
+
+    <transition v-if="!$route.params.animate">
+      <router-view />
+    </transition>
+
+    <transition 
+      v-else
       :name="transitionName"
       @before-leave="beforeLeave"
       @after-leave="afterLeave"
@@ -98,15 +105,10 @@ export default {
       @before-enter="beforeEnter"
       @enter="enter"
     >
-      <router-view :key="$route.fullPath"></router-view>
+      <router-view />
     </transition>
-    <transition v-else
-      :name="transitionName + 'test'"
-    >
-      <keep-alive >
-        <router-view :key="$route.fullPath"></router-view>
-      </keep-alive>
-    </transition>
+
+    
   </div>
 </template>
 
