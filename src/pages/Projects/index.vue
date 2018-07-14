@@ -19,6 +19,17 @@ export default {
     .wrapper
       h2 Projects
       #grid
+        router-link(:to="{ name: 'drawer' }")
+          .drawer
+            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('@assets/images/creativeDrawer.png') + ')', backgroundSize: 'cover' }")
+              .firstContent
+                h3 Creative Drawer
+                p.
+                  Creative Drawer est un CMS permettant aux dessinateurs de creer un site d'exposition d'oeuvres rapidement.
+              .hiddenContent
+                span Html
+                span Css / Sass
+                span Php
         router-link(:to="{ name: 'immo' }")
           .immo
             .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('@assets/images/immo.png') + ')', backgroundSize: 'cover' }")
@@ -40,27 +51,7 @@ export default {
                 span Vue js
                 span Electron
                 span Nedb
-        router-link(:to="{ name: 'waldata' }")
-          .waldata
-            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('@assets/images/waldata.png') + ')', backgroundSize: 'cover' }")
-              .firstContent
-                h3 Waldata
-                p Waldata propose des logiciels d'aide a la decision en bourse.
-              .hiddenContent
-                span Html
-                span Css
-                span Asp
-        router-link(:to="{ name: 'waltrade' }")
-          .waltrade
-            .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('@assets/images/waltrade.png') + ')', backgroundSize: 'cover' }")
-              .firstContent
-                h3 Waltrade Institut
-                p.
-                  Waltrade propose des formations sur place ou a distance afin de progresser et d'evoluer sur les marches.
-              .hiddenContent
-                span Html
-                span Css
-                span Asp
+
         //- router-link(:to="{ name: 'portfolio2016' }")
         .oldPortfolio
           .image(:style="{ background: 'linear-gradient(to left, rgba(40, 43, 60, 0.85), rgba(40, 43, 60, 0.85)), url('+ require('@assets/images/oldportfolio.png') + ')', backgroundSize: 'cover' }")

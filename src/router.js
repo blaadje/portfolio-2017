@@ -26,8 +26,7 @@ const router = new Router({
       children: [
         { path: 'immo', name: 'immo', component: PageItem, meta: { preload: true } },
         { path: 'todolist', name: 'todolist', component: PageItem, meta: { preload: true } },
-        { path: 'waldata', name: 'waldata', component: PageItem, meta: { preload: true } },
-        { path: 'waltrade', name: 'waltrade', component: PageItem, meta: { preload: true } },
+        { path: 'drawer', name: 'drawer', component: PageItem, meta: { preload: true } },
         { path: 'portfolio2016', name: 'portfolio2016', component: PageItem, meta: { preload: true } },
         { path: 'portfolio2017', name: 'portfolio2017', component: PageItem, meta: { preload: true } }
       ]
