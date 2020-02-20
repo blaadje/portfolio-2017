@@ -15,8 +15,19 @@ const PageItem = () => import('./pages/Projects/items')
 const router = new Router({
   mode: 'history',
   routes: [
-    { path: '/', name: 'page1', component: page1, meta: { preload: false, index: 1 } },
-    { path: '/skills', name: 'page2', component: page2, meta: { preload: true, index: 2 }, params: { animate: false } },
+    {
+      path: '/',
+      name: 'page1',
+      component: page1,
+      meta: { preload: false, index: 1 },
+    },
+    {
+      path: '/skills',
+      name: 'page2',
+      component: page2,
+      meta: { preload: true, index: 2 },
+      params: { animate: false },
+    },
     {
       path: '/projects',
       name: 'page3',
@@ -24,17 +35,54 @@ const router = new Router({
       meta: { preload: true, index: 3 },
       params: { animate: false },
       children: [
-        { path: 'immo', name: 'immo', component: PageItem, meta: { preload: true } },
-        { path: 'todolist', name: 'todolist', component: PageItem, meta: { preload: true } },
-        { path: 'drawer', name: 'drawer', component: PageItem, meta: { preload: true } },
-        { path: 'portfolio2016', name: 'portfolio2016', component: PageItem, meta: { preload: true } },
-        { path: 'portfolio2017', name: 'portfolio2017', component: PageItem, meta: { preload: true } }
-      ]
+        {
+          path: 'immo',
+          name: 'immo',
+          component: PageItem,
+          meta: { preload: true },
+        },
+        {
+          path: 'todolist',
+          name: 'todolist',
+          component: PageItem,
+          meta: { preload: true },
+        },
+        {
+          path: 'drawer',
+          name: 'drawer',
+          component: PageItem,
+          meta: { preload: true },
+        },
+        {
+          path: 'portfolio2016',
+          name: 'portfolio2016',
+          component: PageItem,
+          meta: { preload: true },
+        },
+        {
+          path: 'portfolio2017',
+          name: 'portfolio2017',
+          component: PageItem,
+          meta: { preload: true },
+        },
+      ],
     },
-    { path: '/resume', name: 'page4', component: page4, meta: { preload: true, index: 4 }, params: { animate: false } },
-    { path: '/contacts', name: 'page5', component: page5, meta: { preload: true, index: 5 }, params: { animate: false } },
-    { path: '*', redirect: '/' }
-  ]
+    {
+      path: '/resume',
+      name: 'page4',
+      component: page4,
+      meta: { preload: true, index: 4 },
+      params: { animate: false },
+    },
+    {
+      path: '/contacts',
+      name: 'page5',
+      component: page5,
+      meta: { preload: true, index: 5 },
+      params: { animate: false },
+    },
+    { path: '*', redirect: '/' },
+  ],
 })
 
 router.beforeEach((to, from, next) => {

@@ -14,26 +14,26 @@
 <script>
 export default {
   props: { last: { type: Boolean, default: false } },
-  data () {
+  data() {
     return {
       index: this.$route.meta.index,
-      show: true
+      show: true,
     }
   },
   methods: {
-    RouteLeft () {
+    RouteLeft() {
       if (this.$route.meta.index > 1) {
         let page = this.$route.meta.index - 1
         this.$router.push({ name: 'page' + page, params: { animate: true } })
       }
     },
-    RouteRight () {
+    RouteRight() {
       if (this.$route.meta.index < 5) {
         let page = this.$route.meta.index + 1
         this.$router.push({ name: 'page' + page, params: { animate: true } })
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -80,7 +80,7 @@ export default {
     &:hover
       .arrow
         transform: rotate(-135deg) scale(1.1)
-    
+
   .next
     right: 3%
     span
@@ -91,6 +91,4 @@ export default {
     &:hover
       .arrow
         transform: rotate(45deg) scale(1.1)
-    
 </style>
-

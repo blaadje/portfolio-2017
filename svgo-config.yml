@@ -1,0 +1,4 @@
+plugins:
+  - removeTitle: true
+  - convertPathData: true
+  - removeDimensions: true

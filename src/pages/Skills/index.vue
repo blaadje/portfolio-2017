@@ -1,14 +1,14 @@
 <style lang="sass" scoped src="./style.sass"></style>
 <script>
-import topHeader from '@/components/header'
-import indexBts from '@/components/indexbuttons'
-import arrows from '@/components/arrows'
+import topHeader from '@components/header'
+import indexBts from '@components/indexbuttons'
+import arrows from '@components/arrows'
 
 export default {
   components: { topHeader, indexBts, arrows },
-  mounted () {
+  mounted() {
     this.$store.dispatch('endPreload')
-  }
+  },
 }
 </script>
 <template lang="pug">
@@ -48,25 +48,25 @@ export default {
         .backEnd.cf
           h3 Back-end languages
           .block
-            img(:src="require('@assets/images/skillgraph.svg')").skillgraph
+            img(:src="require('@assets/images/skillgraph.svg').default").skillgraph
         #block2
           .frameworks
             h3 Main frameworks
             .block
               .item
-                img(:src="require('@assets/images/vue.png')") 
+                img(:src="require('@assets/images/vue.png').default") 
                 br
                 span Vue JS
               .item
-                img(:src="require('@assets/images/react.png')") 
+                img(:src="require('@assets/images/react.png').default") 
                 br
                 span React JS
               .item
-                img(:src="require('@assets/images/laravel.png')") 
+                img(:src="require('@assets/images/laravel.png').default") 
                 br
                 span Laravel
               .item
-                img(:src="require('@assets/images/semantic.png')") 
+                img(:src="require('@assets/images/semantic.png').default") 
                 br
                 span Semantic
         #block3
@@ -117,5 +117,3 @@ export default {
                     span npm
                     span yarn
 </template>
-
-

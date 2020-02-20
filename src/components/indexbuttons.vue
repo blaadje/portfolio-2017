@@ -1,16 +1,35 @@
 <template>
   <div id="navbar">
-    <router-link :to="{ name: 'page1', params: { animate: true } }" class="navigation" exact></router-link>
-    <router-link :to="{ name: 'page2', params: { animate: true } }" class="navigation" exact></router-link>
-    <router-link :to="{ name: 'page3', params: { animate: true } }" class="navigation" exact></router-link>
-    <router-link :to="{ name: 'page4', params: { animate: true } }" class="navigation" exact></router-link>
-    <router-link :to="{ name: 'page5', params: { animate: true } }" class="navigation" exact></router-link>
+    <router-link
+      :to="{ name: 'page1', params: { animate: true } }"
+      class="navigation"
+      exact
+    ></router-link>
+    <router-link
+      :to="{ name: 'page2', params: { animate: true } }"
+      class="navigation"
+      exact
+    ></router-link>
+    <router-link
+      :to="{ name: 'page3', params: { animate: true } }"
+      class="navigation"
+      exact
+    ></router-link>
+    <router-link
+      :to="{ name: 'page4', params: { animate: true } }"
+      class="navigation"
+      exact
+    ></router-link>
+    <router-link
+      :to="{ name: 'page5', params: { animate: true } }"
+      class="navigation"
+      exact
+    ></router-link>
   </div>
 </template>
 
 <script>
-export default {
-}
+export default {}
 </script>
 
 <style lang="sass" scoped>
@@ -47,4 +66,3 @@ export default {
     &.router-link-active
       background: transparent
 </style>
-

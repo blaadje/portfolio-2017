@@ -1,16 +1,16 @@
 <style lang="sass" scoped src="./style.sass"></style>
 <script>
-import topHeader from '@/components/header'
-import indexBts from '@/components/indexbuttons'
-import arrows from '@/components/arrows'
+import topHeader from '@components/header'
+import indexBts from '@components/indexbuttons'
+import arrows from '@components/arrows'
 
 export default {
   components: { topHeader, indexBts, arrows },
-  mounted () {
+  mounted() {
     this.$nextTick(_ => {
       this.$store.dispatch('endPreload')
     })
-  }
+  },
 }
 </script>
 <template lang="pug">
@@ -27,7 +27,7 @@ export default {
           and keep learning new stuffs as much as development as design 
       .experience
         h3 Here are my experiences and diplomas
-        img(:src="require('@assets/images/experiences.svg')").exp
+        img(:src="require('@assets/images/experiences.svg').default").exp
       .hobbies
         h3 Hobbies
         p.
@@ -36,13 +36,12 @@ export default {
       
       .download
         p You can download my resume's printable version here :
-        a(target="_blank", :href="require('@assets/moncv2.pdf')")
+        a(target="_blank", :href="require('@assets/moncv2.pdf').default")
           .button
             .squares
               .a
               .b
             span pdf
-            img(:src="require('@assets/images/arrow.svg')")
+            img(:src="require('@assets/images/arrow.svg').default")
       
 </template>
-

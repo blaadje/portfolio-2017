@@ -13,13 +13,13 @@ $main: #282b3c;
 .Tags {
   text-transform: uppercase;
   margin-right: 1em;
-  padding: .5em 1em !important;
-  font-size: .7em;
+  padding: 0.5em 1em !important;
+  font-size: 0.7em;
 }
 
 .Preview {
   margin-top: 1em;
-  background: #14A4AA !important;
+  background: #14a4aa !important;
 }
 
 .Template-wrapper {
@@ -27,7 +27,7 @@ $main: #282b3c;
   margin: auto;
   padding-top: 100px;
   position: relative;
-  
+
   .Template-header {
     max-width: 700px;
     p {
@@ -41,23 +41,24 @@ $main: #282b3c;
     right: 0px;
     top: 100px;
 
-    .Facebook, .Github {
+    .Facebook,
+    .Github {
       display: inline-flex;
       align-items: center;
 
       img {
         width: 20px;
-        margin-right: .5em;
+        margin-right: 0.5em;
       }
     }
 
     .Github {
-      background: #64CFFA !important;
+      background: #64cffa !important;
     }
 
     .Facebook {
-      margin-left: .5em;
-      background: #3759A0 !important;
+      margin-left: 0.5em;
+      background: #3759a0 !important;
     }
   }
 
@@ -67,25 +68,25 @@ $main: #282b3c;
     top: 40px;
     cursor: pointer;
     right: -50px;
-    transition: .3s ease;
+    transition: 0.3s ease;
 
     &:hover {
-      transform: rotate(-180deg)
+      transform: rotate(-180deg);
     }
   }
 
   .Template-button {
     display: inline-block;
     color: white;
-    padding: .5em 1.3em;
+    padding: 0.5em 1.3em;
     text-decoration: none;
-    border-radius: .2em .2em .1em .1em;
-    background: #4A4E5B;
+    border-radius: 0.2em 0.2em 0.1em 0.1em;
+    background: #4a4e5b;
     border-bottom: 4px solid rgba(#000, 0.3);
   }
 
   .Template-image {
-    border-radius: .2em;
+    border-radius: 0.2em;
     margin: 2em auto;
     display: flex;
     max-width: 100%;
@@ -99,4 +100,3 @@ $main: #282b3c;
     }
   }
 }
-  

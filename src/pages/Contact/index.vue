@@ -1,16 +1,16 @@
 <style lang="sass" scoped src="./style.sass"></style>
 <script>
-import topHeader from '@/components/header'
-import indexBts from '@/components/indexbuttons'
-import arrows from '@/components/arrows'
+import topHeader from '@components/header'
+import indexBts from '@components/indexbuttons'
+import arrows from '@components/arrows'
 
 export default {
   components: { topHeader, indexBts, arrows },
-  mounted () {
+  mounted() {
     this.$nextTick(_ => {
       this.$store.dispatch('endPreload')
     })
-  }
+  },
 }
 </script>
 <template lang="pug">
@@ -25,20 +25,20 @@ export default {
         .infos.cf
           .phone
             .imageContainer
-              img(:src="require('@assets/images/contactPhone.svg')").contactPhone
+              img(:src="require('@assets/images/contactPhone.svg').default").contactPhone
             .text
               h4 Phone
               h5 06 43 18 58 24
           .email
             .imageContainer
-              img(:src="require('@assets/images/contactEmail.svg')").contactEmail
+              img(:src="require('@assets/images/contactEmail.svg').default").contactEmail
             .text
               h4 Email
               h5 acharlot91@gmail.com
           br
           .city
             .imageContainer
-              img(:src="require('@assets/images/contactPlace.svg')").contactPlace
+              img(:src="require('@assets/images/contactPlace.svg').default").contactPlace
             .text
               h4 City
               h5 Paris
@@ -57,8 +57,5 @@ export default {
         a(href="https://www.linkedin.com/in/alexandre-charlot-38698b151/", target='_blank').linkedIn
           span in
         a(href="#").dribble
-          img(:src="require('@assets/images/ball.png')")
+          img(:src="require('@assets/images/ball.png').default")
 </template>
-
-
-

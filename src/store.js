@@ -4,30 +4,30 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-  isPreloading: false
+  isPreloading: false,
 }
 
 const mutations = {
-  beginPreload (state) {
+  beginPreload(state) {
     state.isPreloading = true
   },
-  endPreload (state) {
+  endPreload(state) {
     state.isPreloading = false
-  }
+  },
 }
 
 const actions = {
   beginPreload: ({ commit }) => commit('beginPreload'),
-  endPreload: ({ commit }) => commit('endPreload')
+  endPreload: ({ commit }) => commit('endPreload'),
 }
 
 const getters = {
-  isPreloading: state => state.isPreloading
+  isPreloading: state => state.isPreloading,
 }
 
 export default new Vuex.Store({
   state,
   getters,
   actions,
-  mutations
+  mutations,
 })

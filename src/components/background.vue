@@ -1,6 +1,4 @@
 <script>
-import _ from 'underscore'
-
 const THREE = require('three/three.min.js')
 const TWEEN = require('@tweenjs/tween.js')
 const TrackballControls = require('three-trackballcontrols')
@@ -9,16 +7,15 @@ let listener
 
 export default {
   props: {
-    speed: { type: Number }
+    speed: { type: Number },
   },
-  data () {
+  data() {
     return {
-      isChanged: false
+      isChanged: false,
     }
   },
   methods: {
-    changePage (e, camera, material) {
-      console.log(e)
+    changePage(e, camera, material) {
       if (e.deltaY < 0 || this.isChanged) {
         return
       }
@@ -27,28 +24,44 @@ export default {
       e.stopPropagation()
 
       new TWEEN.Tween(camera.position)
-      .to({
-        x: 23,
-        y: 324,
-        z: -100}, 1000)
-      .easing(TWEEN.Easing.Sinusoidal.InOut)
-      .start()
+        .to(
+          {
+            x: 23,
+            y: 324,
+            z: -100,
+          },
+          1000
+        )
+        .easing(TWEEN.Easing.Sinusoidal.InOut)
+        .start()
       new TWEEN.Tween(material)
-      .to({
-        size: 10}, 1000)
-      .easing(TWEEN.Easing.Sinusoidal.InOut)
-      .start()
+        .to(
+          {
+            size: 10,
+          },
+          1000
+        )
+        .easing(TWEEN.Easing.Sinusoidal.InOut)
+        .start()
 
       this.isChanged = true
 
       setTimeout(() => {
         this.$router.push({ name: 'page2', params: { animate: true } })
       }, 1000)
-    }
+    },
   },
-  mounted () {
+  mounted() {
     let container
-    let camera, scene, renderer, particles, lines, mouselines, controls, material, line
+    let camera,
+      scene,
+      renderer,
+      particles,
+      lines,
+      mouselines,
+      controls,
+      material,
+      line
     let plane, frustum, cameraViewProjectionMatrix
 
     let visibleParticles = []
@@ -65,12 +78,15 @@ export default {
       x: 0,
       y: 0,
       particle: null,
-      updateParticlePosition: function () {
-        let x = this.x / window.innerWidth * 2 - 1
-        let y = -this.y / window.innerHeight * 2 + 1
+      updateParticlePosition: function() {
+        let x = (this.x / window.innerWidth) * 2 - 1
+        let y = (-this.y / window.innerHeight) * 2 + 1
 
         let vector = new THREE.Vector3(x, y, 0.5).unproject(camera)
-        let raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize())
+        let raycaster = new THREE.Raycaster(
+          camera.position,
+          vector.sub(camera.position).normalize()
+        )
         let intersects = raycaster.intersectObject(plane)
 
         if (!intersects.length) {
@@ -79,24 +95,33 @@ export default {
         }
         let position = intersects[0].point
         this.particle.position.copy(position)
-      }
+      },
     }
 
     init()
     animate()
 
-    function init () {
+    function init() {
       container = document.querySelector('#container')
 
-      camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 100, 10000)
+      camera = new THREE.PerspectiveCamera(
+        80,
+        window.innerWidth / window.innerHeight,
+        100,
+        10000
+      )
       camera.position.z = 1000
       new TWEEN.Tween(camera.position)
-      .to({
-        x: 0,
-        y: 0,
-        z: 800}, 2000)
-      .easing(TWEEN.Easing.Bounce.InOut)
-      .start()
+        .to(
+          {
+            x: 0,
+            y: 0,
+            z: 800,
+          },
+          2000
+        )
+        .easing(TWEEN.Easing.Bounce.InOut)
+        .start()
 
       frustum = new THREE.Frustum()
       cameraViewProjectionMatrix = new THREE.Matrix4()
@@ -116,9 +141,9 @@ export default {
       plane = new THREE.Mesh(
         new THREE.PlaneBufferGeometry(5000, 5000, 8, 8),
         new THREE.MeshBasicMaterial({
-          color: 0xFF0000,
+          color: 0xff0000,
           opacity: 0.25,
-          transparent: true
+          transparent: true,
         })
       )
       plane.visible = false
@@ -138,30 +163,32 @@ export default {
         let z = Math.random() * 2000 - 1000
 
         let particle = new THREE.Vector3(x, y, z)
-        particle.velocity = new THREE.Vector3(-0.5 + Math.random(), -0.5 + Math.random(), -0.5 + Math.random()).multiplyScalar(SPEED)
+        particle.velocity = new THREE.Vector3(
+          -0.5 + Math.random(),
+          -0.5 + Math.random(),
+          -0.5 + Math.random()
+        ).multiplyScalar(SPEED)
         particle.nearParticles = []
         particles.vertices.push(particle)
       }
 
       let image = document.createElement('img')
-      image.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAM1BMVEUAAAD///////////////////////////////////////////////////////////////+3leKCAAAAEHRSTlMA6gSS+UwQxYBYrZaUV8eBNZqYOQAAAJBJREFUKM+Fk1kOAyEMQ+Owzp77n7ZCbRHTDvH7fRIKiS0dTaEgRpSQVH7JFdZBzXe7wG5gGaRu9sem3a72wPr1wR7Z3/awCUezGTONNn+1KVVEMddQSeaQJHg6SPF0EXgaEj0diSaPk9HIx8hayFLJSchBvTh84rg7YSJRJEHmNWjkC4O8eonGCp6tgudYwRdS1iqsCVRl3AAAAABJRU5ErkJggg=='
+      image.src =
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAM1BMVEUAAAD///////////////////////////////////////////////////////////////+3leKCAAAAEHRSTlMA6gSS+UwQxYBYrZaUV8eBNZqYOQAAAJBJREFUKM+Fk1kOAyEMQ+Owzp77n7ZCbRHTDvH7fRIKiS0dTaEgRpSQVH7JFdZBzXe7wG5gGaRu9sem3a72wPr1wR7Z3/awCUezGTONNn+1KVVEMddQSeaQJHg6SPF0EXgaEj0diSaPk9HIx8hayFLJSchBvTh84rg7YSJRJEHmNWjkC4O8eonGCp6tgudYwRdS1iqsCVRl3AAAAABJRU5ErkJggg=='
       let sprite = new THREE.Texture(image)
-      image.onload = function () {
+      image.onload = function() {
         sprite.needsUpdate = true
       }
 
       material = new THREE.PointCloudMaterial({
         size: RADIUS,
         map: sprite,
-        color: 0xFFFFFF,
+        color: 0xffffff,
         depthTest: false,
-        transparent: true
+        transparent: true,
       })
 
-      let particleSystem = new THREE.PointCloud(
-        particles,
-        material
-      )
+      let particleSystem = new THREE.PointCloud(particles, material)
 
       particleSystem.sortParticles = true
       scene.add(particleSystem)
@@ -170,7 +197,7 @@ export default {
         map: sprite,
         fog: true,
         transparent: true,
-        opacity: 0.25
+        opacity: 0.25,
       })
 
       mouse.particle = new THREE.Sprite(mouseMaterial)
@@ -181,7 +208,7 @@ export default {
       renderer = new THREE.WebGLRenderer({
         antialias: true,
         alpha: true,
-        clearAlpha: 1
+        clearAlpha: 1,
       })
       renderer.setClearColor(0x000000, 0)
       renderer.setSize(window.innerWidth, window.innerHeight)
@@ -193,13 +220,13 @@ export default {
       window.addEventListener('resize', onWindowResize, false)
     }
 
-    function onWindowResize () {
+    function onWindowResize() {
       camera.aspect = window.innerWidth / window.innerHeight
       camera.updateProjectionMatrix()
       renderer.setSize(window.innerWidth, window.innerHeight)
     }
 
-    function onDocumentMouseMove (event) {
+    function onDocumentMouseMove(event) {
       mouse.x = event.clientX
       mouse.y = event.clientY
       camera.x = event.clientX
@@ -207,13 +234,13 @@ export default {
       mouse.updateParticlePosition()
     }
 
-    function animate () {
+    function animate() {
       requestAnimationFrame(animate)
       render()
       TWEEN.update()
     }
 
-    function render () {
+    function render() {
       controls.update()
       particlesAnimate()
       particlesDistance()
@@ -223,26 +250,27 @@ export default {
       renderer.render(scene, camera)
     }
 
-    function particlesAnimate () {
+    function particlesAnimate() {
       for (let i = 0, il = particles.vertices.length; i < il; i++) {
         let p = particles.vertices[i]
 
         p.add(p.velocity)
 
-        if (p.x - RADIUS > 1000 || p.x + RADIUS < -1000) p.velocity.x = -p.velocity.x
-        if (p.y - RADIUS > 1000 || p.y + RADIUS < -1000) p.velocity.y = -p.velocity.y
-        if (p.z - RADIUS > 1000 || p.z + RADIUS < -1000) p.velocity.z = -p.velocity.z
+        if (p.x - RADIUS > 1000 || p.x + RADIUS < -1000)
+          p.velocity.x = -p.velocity.x
+        if (p.y - RADIUS > 1000 || p.y + RADIUS < -1000)
+          p.velocity.y = -p.velocity.y
+        if (p.z - RADIUS > 1000 || p.z + RADIUS < -1000)
+          p.velocity.z = -p.velocity.z
       }
       particles.verticesNeedUpdate = true
     }
 
-    function particlesDistance () {
-      visibleParticles = _.filter(particles.vertices, function (p) {
-        return frustum.containsPoint(p)
-      })
-      visibleLines = _.filter(lines.children, function (l) {
-        return frustum.intersectsObject(l)
-      })
+    function particlesDistance() {
+      visibleParticles = particles.vertices.filter(p =>
+        frustum.containsPoint(p)
+      )
+      visibleLines = lines.children.filter(l => frustum.intersectsObject(l))
 
       for (let i = 0; i < visibleParticles.length; i++) {
         let p = visibleParticles[i]
@@ -256,7 +284,7 @@ export default {
       }
     }
 
-    function linesUpdate () {
+    function linesUpdate() {
       for (let i = 0; i < visibleLines.length; i++) {
         let l = visibleLines[i]
         l.geometry.computeLineDistances()
@@ -271,7 +299,7 @@ export default {
       }
     }
 
-    function mouseLinesUpdate () {
+    function mouseLinesUpdate() {
       for (let i = 0; i < mouselines.children.length; i++) {
         let l = mouselines.children[i]
         let p0 = toScreenXY(l.geometry.vertices[0])
@@ -285,22 +313,26 @@ export default {
         if (dist2D > DISTANCE || p0.z > ZDEPTH) {
           mouselines.remove(l)
         } else {
-          l.material.opacity = 1 - Math.abs(p0.z - 0.5) / 0.5 / 2 - dist2D / DISTANCE
+          l.material.opacity =
+            1 - Math.abs(p0.z - 0.5) / 0.5 / 2 - dist2D / DISTANCE
           l.geometry.verticesNeedUpdate = true
         }
       }
     }
 
-    function updateFrustum () {
+    function updateFrustum() {
       camera.updateMatrixWorld()
       camera.matrixWorldInverse.getInverse(camera.matrixWorld)
-      cameraViewProjectionMatrix.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse)
+      cameraViewProjectionMatrix.multiplyMatrices(
+        camera.projectionMatrix,
+        camera.matrixWorldInverse
+      )
       frustum.setFromMatrix(cameraViewProjectionMatrix)
 
       plane.lookAt(camera.position)
     }
 
-    function distanceParticles (p1, p2) {
+    function distanceParticles(p1, p2) {
       let dist = p1.distanceTo(p2)
 
       let pos = p1.nearParticles.indexOf(p2)
@@ -316,7 +348,7 @@ export default {
       }
     }
 
-    function distanceWithMouse (p) {
+    function distanceWithMouse(p) {
       let pxy = toScreenXY(p)
       let dx = mouse.x - pxy.x
       let dy = mouse.y - pxy.y
@@ -337,32 +369,26 @@ export default {
       }
     }
 
-    function createMouseLine (p) {
+    function createMouseLine(p) {
       let geometry = new THREE.Geometry()
-      geometry.vertices.push(
-        p,
-        mouse.particle.position
-      )
+      geometry.vertices.push(p, mouse.particle.position)
 
       let lineMaterial = new THREE.LineBasicMaterial({
-        color: 0xFFFFFF,
+        color: 0xffffff,
         transparent: true,
         opacity: 1,
         depthTest: false,
         linewidth: THICKNESS,
-        fog: false
+        fog: false,
       })
 
       line = new THREE.Line(geometry, lineMaterial)
       mouselines.add(line)
     }
 
-    function createLine (p1, p2) {
+    function createLine(p1, p2) {
       let geometry = new THREE.Geometry()
-      geometry.vertices.push(
-        p1,
-        p2
-      )
+      geometry.vertices.push(p1, p2)
 
       let lineMaterial = new THREE.LineBasicMaterial({
         color: 0x3f8490,
@@ -370,7 +396,7 @@ export default {
         opacity: 0.5,
         depthTest: false,
         linewidth: THICKNESS,
-        fog: true
+        fog: true,
       })
 
       line = new THREE.Line(geometry, lineMaterial)
@@ -378,23 +404,27 @@ export default {
       return line
     }
 
-    function toScreenXY (position) {
+    function toScreenXY(position) {
       let pos = position.clone()
       pos.applyProjection(cameraViewProjectionMatrix)
-      return { x: (pos.x + 1) * window.innerWidth / 2, y: (-pos.y + 1) * window.innerHeight / 2, z: pos.z }
+      return {
+        x: ((pos.x + 1) * window.innerWidth) / 2,
+        y: ((-pos.y + 1) * window.innerHeight) / 2,
+        z: pos.z,
+      }
     }
 
-    listener = (event) => {
+    listener = event => {
       this.changePage(event, camera, material)
     }
 
     document.addEventListener('wheel', listener)
     document.addEventListener('DOMMouseScroll', listener)
   },
-  destroyed () {
+  destroyed() {
     this.isChanged = true
     document.querySelector('#container canvas').remove
-  }
+  },
 }
 </script>
 <template>
@@ -408,4 +438,3 @@ canvas
   pointer-events: none
   z-index: 1
 </style>
-
