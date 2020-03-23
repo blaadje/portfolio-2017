@@ -1,0 +1,114 @@
+$main: #282b3c;
+$text: #807e8e;
+$highlight: #38a8ab;
+$white: #31737f;
+
+.wrapper {
+  background: #282b3c;
+  color: white;
+  padding-bottom: 8rem;
+  height: 100vh;
+}
+
+.subTitle {
+  font-weight: 300;
+  font-size: 1.8em;
+  position: relative;
+  margin-bottom: 2em;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    height: 1px;
+    width: 150px;
+    background: $highlight;
+    left: 0;
+  }
+}
+
+.catchupLine {
+  font-size: 1.1rem;
+}
+
+.contentWrapper {
+  display: flex;
+}
+
+.infos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contactItem {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.city {
+  width: 100%;
+}
+
+.contactItemTitle {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.contactItemValue {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #bebfc4;
+  font-weight: 300;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.icon {
+  width: 30px;
+  stroke: #d4d5d8;
+  fill: #d4d5d8;
+  margin-right: 1rem;
+}
+
+.contact,
+.sociable {
+  width: 50%;
+}
+
+.contact {
+  padding-right: 5rem;
+}
+
+.link {
+  display: inline-flex;
+  vertical-align: top;
+  height: 80px;
+  width: 80px;
+  transition: all 0.6s;
+  color: white;
+  text-decoration: none;
+  font-size: 2em;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  background: $white;
+  border: 1px solid white;
+  padding: 0.4em 0.6em;
+  &:hover {
+    background: $main;
+  }
+  &:not(:last-child) {
+    margin-right: 1em;
+  }
+}
+
+.linkIcon {
+  display: inline-flex;
+  height: 30px;
+  width: 30px;
+}

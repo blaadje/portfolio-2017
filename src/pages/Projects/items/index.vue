@@ -1,62 +1,74 @@
-<style lang="scss" scoped src="./style.scss"></style>
 <script>
-import datas from './projectItems'
+import projects from '../projects.yaml'
+import CloseIcon from '@assets/images/close'
+import GithubIcon from '@assets/images/github-logo'
+import FacebookIcon from '@assets/images/facebook-logo-button'
 
 export default {
-  data() {
-    return { datas: datas[this.$route.name] }
+  components: {
+    CloseIcon,
+    GithubIcon,
+    FacebookIcon,
+  },
+  computed: {
+    project() {
+      return projects[this.$route.name]
+    },
   },
 }
 </script>
 <template>
-  <div class="Template-overlay">
-    <div class="Template-wrapper">
-      <img
-        src="~/@assets/images/close.svg"
-        class="Template-close"
-        @click="() => this.$router.go(-1)"
-      />
-      <div class="Template-header">
-        <h1>{{ datas.title }}</h1>
-        <p>{{ datas.description }}</p>
-        <div class="Header-tags">
-          <span
-            class="Template-button Tags"
-            v-for="(item, key) in datas.tags"
-            :key="key"
-            >{{ item }}</span
+  <div :class="$style.wrapper">
+    <div :class="$style.container">
+      <CloseIcon :class="$style.close" @click="() => this.$router.go(-1)" />
+      <div :class="$style.topWrapper">
+        <div :class="$style.header">
+          <h1>{{ project.name }}</h1>
+          <p>{{ project.description }}</p>
+          <div :class="$style.tags">
+            <span
+              :class="[$style.button, $style.tags]"
+              v-for="(item, key) in project.tags"
+              :key="key"
+              >{{ item }}</span
+            >
+          </div>
+          <a
+            v-if="project.preview"
+            :href="project.preview"
+            target="_blank"
+            :class="[$style.button, $style.preview]"
+            >Preview</a
           >
         </div>
-        <a :href="datas.preview" target="_blank" class="Template-button Preview"
-          >Preview</a
-        >
-      </div>
-      <div class="Template-socialNetwork">
-        <a :href="datas.github" class="Template-button Github" target="_blank">
-          <img src="~/@assets/images/github-logo.svg" />
-          <span>Github</span>
-        </a>
-        <a
-          :href="datas.facebook"
-          class="Template-button Facebook"
-          target="_blank"
-        >
-          <img src="~/@assets/images/facebook-logo-button.svg" />
-          <span>Facebook</span>
-        </a>
+        <div :class="$style.socialNetwork">
+          <a
+            v-if="project.github"
+            :href="project.github"
+            :class="[$style.button, $style.github]"
+            target="_blank"
+          >
+            <GithubIcon :class="[$style.icon]" />
+            <span>Github</span>
+          </a>
+          <a
+            v-if="project.facebook"
+            :href="project.facebook"
+            :class="[$style.button, $style.facebook]"
+            target="_blank"
+          >
+            <FacebookIcon :class="$style.icon" />
+            <span>Facebook</span>
+          </a>
+        </div>
       </div>
 
       <img
-        :src="require(`@assets/images/${datas.src}`)"
-        class="Template-image"
+        :src="require(`@assets/images/${project.src}`).default"
+        :class="$style.image"
         alt=""
       />
-
-      <!-- <div class="Template-browser">
-        <p>Browser compatibility</p>
-        <img src="" />
-        <img src="" />
-      </div> -->
     </div>
   </div>
 </template>
+<style lang="scss" module src="./style.scss"></style>

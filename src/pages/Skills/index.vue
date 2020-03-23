@@ -1,119 +1,106 @@
-<style lang="sass" scoped src="./style.sass"></style>
+<template>
+  <div :class="$style.content">
+    <Header />
+    <Container>
+      <h2>Skills</h2>
+      <div :class="$style.grid">
+        <div :class="$style.block">
+          <h3 :class="$style.titleBlock">Front-end languages</h3>
+          <Paper :class="$style.paper">
+            <Gauge :class="$style.gauge" :items="skills.frontEnd" />
+          </Paper>
+        </div>
+        <div :class="[$style.block, $style.preProcessors]">
+          <h3 :class="$style.titleBlock">Pre-processors</h3>
+          <Paper :class="$style.paper">
+            <Gauge :class="$style.gauge" :items="skills.preProcessors" />
+          </Paper>
+        </div>
+        <div :class="[$style.block, $style.backEnd]">
+          <h3 :class="$style.titleBlock">Back-end languages</h3>
+          <Paper :class="$style.paper">
+            <Chart
+              :data="{
+                labels: backend.label,
+                datasets: [
+                  {
+                    borderWidth: 2,
+                    borderColor: 'rgb(1, 165, 171)',
+                    pointBackgroundColor: 'rgb(1, 165, 171)',
+                    backgroundColor: 'rgba(255,255,255, 0.2)',
+                    data: backend.pourcentage,
+                  },
+                ],
+              }"
+            />
+          </Paper>
+        </div>
+        <div :class="[$style.block, $style.frameworks]">
+          <h3 :class="$style.titleBlock">Main frameworks</h3>
+          <Paper :class="$style.paper">
+            <div
+              v-for="skill in skills.frameworks"
+              :key="skill.label"
+              :class="$style.frameworkItem"
+            >
+              <img :src="require(`@assets/images/${skill.src}`).default" />
+              <span :class="$style.frameworkItemLabel">{{ skill.label }}</span>
+            </div>
+          </Paper>
+        </div>
+        <div :class="[$style.block, $style.designing]">
+          <h3 :class="$style.titleBlock">Designing tools</h3>
+          <Paper :class="$style.paper">
+            <Gauge :class="$style.gauge" :items="skills.designingTool" />
+          </Paper>
+        </div>
+        <div :class="[$style.block, $style.developping]">
+          <h3 :class="$style.titleBlock">Developing tools</h3>
+          <Paper :class="[$style.paper, $style.toolsWrapper]">
+            <span
+              v-for="tool in skills.tools"
+              :key="tool"
+              :class="$style.tool"
+              >{{ tool }}</span
+            >
+          </Paper>
+        </div>
+      </div>
+    </Container>
+  </div>
+</template>
+
 <script>
-import topHeader from '@components/header'
-import indexBts from '@components/indexbuttons'
+import Header from '@components/header'
 import arrows from '@components/arrows'
+import SkillGraphIcon from '@assets/images/skillgraph'
+import Container from '@components/container'
+import Paper from './components/Paper'
+import Gauge from './components/Gauge'
+import Chart from './components/Chart'
+import skills from './skills.yaml'
 
 export default {
-  components: { topHeader, indexBts, arrows },
+  components: { SkillGraphIcon, Header, Container, Paper, Gauge, Chart },
   mounted() {
     this.$store.dispatch('endPreload')
   },
+  computed: {
+    backend() {
+      return skills.backend.reduce((acc, { pourcentage, label }) => {
+        if (!acc.label && !acc.pourcentage) {
+          return { label: [label], pourcentage: [pourcentage] }
+        }
+
+        return {
+          label: [...acc.label, label],
+          pourcentage: [...acc.pourcentage, pourcentage],
+        }
+      }, {})
+    },
+    skills: () => skills,
+  },
 }
 </script>
-<template lang="pug">
-  .content
-    topHeader
-    arrows
-    .wrapper
-      h2 Skills
-      #grid.cf
-        #block1
-          .frontEnd
-            h3 Front-end languages
-            .block
-              .insideWrapper
-                .rect.html
-                  span.pourcentage 98%
-                  span.text Html
-                .rect.css
-                  span.pourcentage 96%
-                  span.text Css
-          .prePross
-            h3 Pre-processors
-            .block
-              .insideWrapper
-                .rect.sass
-                  span.pourcentage 65%
-                  span.text Sass
-                .rect.less
-                  span.pourcentage 51%
-                  span.text Less
-                .rect.pug
-                  span.pourcentage 75%
-                  span.text Pug/Jade
-                .rect.coffee
-                  span.pourcentage 43%
-                  span.text Coffee
-        .backEnd.cf
-          h3 Back-end languages
-          .block
-            img(:src="require('@assets/images/skillgraph.svg').default").skillgraph
-        #block2
-          .frameworks
-            h3 Main frameworks
-            .block
-              .item
-                img(:src="require('@assets/images/vue.png').default") 
-                br
-                span Vue JS
-              .item
-                img(:src="require('@assets/images/react.png').default") 
-                br
-                span React JS
-              .item
-                img(:src="require('@assets/images/laravel.png').default") 
-                br
-                span Laravel
-              .item
-                img(:src="require('@assets/images/semantic.png').default") 
-                br
-                span Semantic
-        #block3
-          .design
-            h3 Designing tools
-            .block
-              .insideWrapper
-                .rect.photoshop
-                  span.pourcentage 65%
-                  span.text Photoshop
-                .rect.sketch
-                  span.pourcentage 90%
-                  span.text Sketch
-                .rect.illustrator
-                  span.pourcentage 51%
-                  span.text Illustrator
-          .developping
-            h3 Developing tools
-            .block
-              .left
-                .ide
-                  h1.title IDE
-                  .textContent
-                    span vscode
-                    span eclipse
-                    span vs studio
-                    span pyscripter
-                .platforms
-                  h1.title Platforms
-                  .textContent
-                    span arch Linux
-                    span Mac os
-              .right
-                .micro
-                  h1.title Micro frameworks
-                  .textContent
-                    span express js
-                    span electron
-                    br
-                    span socket io
-                .building
-                  h1.title Building Tools
-                  .textContent
-                    span grunt
-                    span gulp
-                    span webpack
-                    br
-                    span npm
-                    span yarn
-</template>
+
+<style lang="scss" module src="./style.scss"></style>

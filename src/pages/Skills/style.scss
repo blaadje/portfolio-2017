@@ -1,0 +1,77 @@
+.content {
+  background: #282b3c;
+  padding-bottom: 8em;
+}
+
+.grid {
+  display: grid;
+  justify-items: center;
+  grid-gap: 3.2rem;
+  grid-template-columns: auto auto auto;
+}
+
+.block,
+.paper,
+.gauge {
+  width: 100%;
+}
+
+.skillgraph {
+  width: 100%;
+}
+
+.frameworks {
+  width: auto;
+  grid-row: 2;
+  grid-column: 1 / span 2;
+}
+
+.backEnd {
+  min-width: 300px;
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+
+.developping {
+  width: auto;
+  grid-column: span 2;
+}
+
+.titleBlock {
+  color: white;
+  font-weight: 300;
+  font-size: 1.8rem;
+}
+
+.frameworkItem {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.frameworkItem:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.frameworkItemLabel {
+  margin-top: 1rem;
+}
+
+.toolsWrapper {
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.tool {
+  margin: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding: 0.5em 1.3em;
+  text-decoration: none;
+  border-radius: 0.2em 0.2em 0.1em 0.1em;
+  background: #4a4e5b;
+  border-bottom: 4px solid rgba(#000, 0.3);
+}

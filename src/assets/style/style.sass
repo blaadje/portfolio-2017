@@ -1,11 +1,5 @@
-#app
-  width: 100vw
-  height: 100vh
-  overflow-x: hidden
-
 @import url('https://fonts.googleapis.com/css?family=Nunito:200,300,400')
 @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css')
-@import './animation'
 
 $main: #0d5b6a
 $clearWhite: rgba(white, 0.16)
@@ -25,15 +19,13 @@ $blue: #04a6ab
   margin: auto
 
 body
-  position: absolute
-  text-rendering: optimizeLegibility !important
+  text-rendering: optimizeLegibility
   margin: 0
-  background: #1c1e27
-  overflow-x: hidden
-  -webkit-font-smoothing: antialiased !important
-  -moz-osx-font-smoothing: grayscale !important
-  font-family: 'Nunito', sans-serif
   padding: 0
+  background: #1c1e27
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  font-family: 'Nunito', sans-serif
 
 ::-webkit-scrollbar
   width: 5px
@@ -65,7 +57,6 @@ h2
 .button
   border-radius: .2em .1em .1em .2em
   background: black
-
   color: white
 
 .content

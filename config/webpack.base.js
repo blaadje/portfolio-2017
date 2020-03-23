@@ -6,7 +6,7 @@ module.exports = {
   resolve: {
     symlinks: false,
     cacheWithContext: false,
-    extensions: ['.vue', '.js'],
+    extensions: ['.vue', '.js', '.svg', 'yaml'],
     alias: {
       ['@assets']: path.resolve(__dirname, '../src/assets/'),
       ['@components']: path.resolve(__dirname, '../src/components'),
@@ -21,21 +21,29 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|jpg|jpeg|gif|ttf|svg|eot|woff|pdf)$/,
-        include: path.resolve(__dirname, '../src/assets'),
-        use: {
-          loader: 'file-loader',
-          options: {},
-        },
+        test: /\.ya?ml$/,
+        use: 'js-yaml-loader',
       },
       {
         test: /\.svg$/,
-        include: path.resolve(__dirname, '../src/images'),
-        use: {
-          loader: 'svgo-loader',
-          options: {
-            externalConfig: 'svgo-config.yml',
+        issuer: /\.(vue|js|ts|svg)$/,
+        use: [
+          // This loader compiles .svg file to .vue file
+          // So we use `vue-loader` after it
+          'vue-loader',
+          {
+            loader: 'svg-to-vue-component/loader',
+            options: {
+              svgoConfig: {},
+            },
           },
+        ],
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|ttf|eot|woff|pdf)$/,
+        include: path.resolve(__dirname, '../src/assets'),
+        use: {
+          loader: 'file-loader',
         },
       },
       {
@@ -43,7 +51,7 @@ module.exports = {
         loader: 'pug-plain-loader',
       },
       {
-        test: /\.(js)$/,
+        test: /\.js$/,
         include: path.resolve(__dirname, '../src'),
         use: {
           loader: 'babel-loader',
@@ -58,10 +66,6 @@ module.exports = {
           'vue-style-loader',
           {
             loader: 'css-loader',
-            // options: {
-            //   modules: true,
-            //   localIdentName: '[local]_[hash:base64:5]',
-            // },
           },
           {
             loader: 'sass-loader',
@@ -75,16 +79,27 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          'vue-style-loader',
+        oneOf: [
+          // this matches `<style module>`
           {
-            loader: 'css-loader',
-            // options: {
-            //   modules: true,
-            //   localIdentName: '[local]_[hash:base64:5]',
-            // },
+            resourceQuery: /module/,
+            use: [
+              'vue-style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: true,
+                  url: true,
+                  localIdentName: '[local]_[hash:base64:5]',
+                },
+              },
+              'sass-loader',
+            ],
           },
-          'sass-loader',
+          // this matches plain `<style>` or `<style scoped>`
+          {
+            use: ['vue-style-loader', 'css-loader', 'sass-loader'],
+          },
         ],
       },
       {

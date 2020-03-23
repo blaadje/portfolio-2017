@@ -1,14 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import store from './store'
+import projects from './pages/projects/projects.yaml'
 
 Vue.use(Router)
 
-const page1 = () => import('./pages/Home')
-const page2 = () => import('./pages/Skills')
-const page3 = () => import('./pages/Projects')
-const page4 = () => import('./pages/Resume')
-const page5 = () => import('./pages/Contact')
+const { default: page1 } = require('./pages/Home')
+const { default: page2 } = require('./pages/Skills')
+const { default: page3 } = require('./pages/Projects')
+const { default: page4 } = require('./pages/Resume')
+const { default: page5 } = require('./pages/Contact')
 
 const PageItem = () => import('./pages/Projects/items')
 
@@ -34,38 +35,12 @@ const router = new Router({
       component: page3,
       meta: { preload: true, index: 3 },
       params: { animate: false },
-      children: [
-        {
-          path: 'immo',
-          name: 'immo',
-          component: PageItem,
-          meta: { preload: true },
-        },
-        {
-          path: 'todolist',
-          name: 'todolist',
-          component: PageItem,
-          meta: { preload: true },
-        },
-        {
-          path: 'drawer',
-          name: 'drawer',
-          component: PageItem,
-          meta: { preload: true },
-        },
-        {
-          path: 'portfolio2016',
-          name: 'portfolio2016',
-          component: PageItem,
-          meta: { preload: true },
-        },
-        {
-          path: 'portfolio2017',
-          name: 'portfolio2017',
-          component: PageItem,
-          meta: { preload: true },
-        },
-      ],
+      children: Object.keys(projects).map(key => ({
+        path: key,
+        name: key,
+        component: PageItem,
+        meta: { preload: true },
+      })),
     },
     {
       path: '/resume',

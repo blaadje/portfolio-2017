@@ -1,102 +1,95 @@
 $main: #282b3c;
 
-.Template-overlay {
-  position: absolute;
-  z-index: 4;
+.wrapper {
+  position: fixed;
+  z-index: 100;
   top: 0;
-  width: 100%;
-  min-height: 100vh;
+  overflow: auto;
+  right: 0;
+  height: 100vh;
   left: 0;
   background: rgba($main, 0.95) !important;
 }
 
-.Tags {
-  text-transform: uppercase;
-  margin-right: 1em;
-  padding: 0.5em 1em !important;
-  font-size: 0.7em;
+.close {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 40px;
+  cursor: pointer;
+  right: -50px;
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: rotate(-180deg);
+  }
 }
 
-.Preview {
+.container {
+  padding-top: 100px;
+  width: 1000px;
+  margin: auto;
+  position: relative;
+}
+
+.tags {
+  text-transform: uppercase;
+  margin-right: 1em;
+  font-size: 0.7rem;
+}
+
+.preview {
   margin-top: 1em;
   background: #14a4aa !important;
 }
 
-.Template-wrapper {
-  width: 1000px;
-  margin: auto;
-  padding-top: 100px;
-  position: relative;
-
-  .Template-header {
-    max-width: 700px;
-    p {
-      font-size: 1.2em;
-      color: rgba(white, 0.6);
-    }
+.header {
+  max-width: 700px;
+  p {
+    font-size: 1.2em;
+    color: rgba(white, 0.6);
   }
+}
 
-  .Template-socialNetwork {
-    position: absolute;
-    right: 0px;
-    top: 100px;
+.topWrapper {
+  display: flex;
+}
 
-    .Facebook,
-    .Github {
-      display: inline-flex;
-      align-items: center;
+.socialNetwork {
+  margin-left: auto;
+}
 
-      img {
-        width: 20px;
-        margin-right: 0.5em;
-      }
-    }
+.icon {
+  height: 15px;
+  width: 15px;
+  margin-right: 0.5em;
+}
 
-    .Github {
-      background: #64cffa !important;
-    }
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding: 0.5em 1.3em;
+  text-decoration: none;
+  border-radius: 0.2em 0.2em 0.1em 0.1em;
+  background: #4a4e5b;
+  border-bottom: 4px solid rgba(#000, 0.3);
+}
 
-    .Facebook {
-      margin-left: 0.5em;
-      background: #3759a0 !important;
-    }
-  }
+.github {
+  background: #64cffa;
+}
 
-  .Template-close {
-    width: 30px;
-    position: absolute;
-    top: 40px;
-    cursor: pointer;
-    right: -50px;
-    transition: 0.3s ease;
+.facebook {
+  margin-left: 0.5em;
+  background: #3759a0;
+}
 
-    &:hover {
-      transform: rotate(-180deg);
-    }
-  }
-
-  .Template-button {
-    display: inline-block;
-    color: white;
-    padding: 0.5em 1.3em;
-    text-decoration: none;
-    border-radius: 0.2em 0.2em 0.1em 0.1em;
-    background: #4a4e5b;
-    border-bottom: 4px solid rgba(#000, 0.3);
-  }
-
-  .Template-image {
-    border-radius: 0.2em;
-    margin: 2em auto;
-    display: flex;
-    max-width: 100%;
-    box-shadow: 0px 3px 50px 0px rgba(0, 0, 0, 0.1);
-  }
-
-  .Template-browser {
-    p {
-      color: white;
-      font-size: 2em;
-    }
-  }
+.image {
+  border-radius: 0.2em;
+  margin: 2em auto;
+  display: flex;
+  max-width: 100%;
+  box-shadow: 0px 3px 50px 0px rgba(0, 0, 0, 0.1);
 }
