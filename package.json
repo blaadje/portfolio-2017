@@ -5,9 +5,9 @@
   "author": "blaadje",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --config=./config/dev/webpack.config.js --mode development",
+    "start": "NODE_ENV=development webpack-dev-server --config config/webpack.dev.js",
     "prettier": "prettier --write \"src/**/*.vue\"",
-    "build": "node build/build.js"
+    "build": "webpack --config config/webpack.prod.js"
   },
   "dependencies": {
     "@tweenjs/tween.js": "^17.1.1",
@@ -48,7 +48,8 @@
     "vue-template-compiler": "^2.3.3",
     "webpack": "4.41.5",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
   },
   "engines": {
     "node": ">= 4.0.0",
