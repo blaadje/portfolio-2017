@@ -1,0 +1,123 @@
+---
+drawer:
+  name: Creative Drawer
+  description: A CMS allowing drawers to quickly create showcases websites.
+  tags:
+    - html
+    - css
+    - php
+  src: Dashboard.png
+  github: https://github.com/keery/drawer
+  preview: http://creative-drawer.ovh/landing
+
+todolist:
+  noTray: true
+  name: Todo-list
+  description: Todo-list is a desktop application made with electron allowing
+    you to create tasks and organize your time.
+  style:
+    grid-row: 1 / span 2
+  tags:
+    - vuejs
+    - electron
+    - gastby
+    - react
+  github: https://github.com/blaadje/Todo-list
+  preview: http://todo-list.io/
+  src: todolist.png
+
+immo:
+  name: Immo
+  description: '"Immo" project was a school project proposing real estate properties to buyers and renters.'
+  tags:
+    - html
+    - css
+    - php
+  github: https://github.com/blaadje/immo
+  src: immoBg.png
+
+movieRate:
+  name: movieRate
+  noTray: true
+  description: Movie rate application.
+  tags:
+    - react
+    - redux
+    - redux-sage
+    - redux-orm
+  github: https://github.com/blaadje/movieRate
+  style:
+    grid-column: 1 / span 2
+    grid-row: span 2
+  facebook: null
+  src: movierate.png
+
+get-the-notes:
+  name: GetTheNotes
+  description: Practice your music theory.
+  tags:
+    - reasonml
+    - vexflow
+  github: https://github.com/blaadje/getthenotes
+  src: getthenote.png
+
+fancyBar:
+  name: FancyBar
+  description: Übersicht system information bars for use with [chunkwm].
+  noTray: true
+  tags:
+    - javascript
+    - Übersicht
+  github: https://github.com/blaadje/fancyBar
+  preview: https://www.reddit.com/r/unixporn/comments/9toocm/aqua_design_mac_osx/
+  src: fancybar.png
+
+shinkansen:
+  name: Shinkansen
+  description: Shinkansen is a secure and fast deploy interface.
+  tags:
+    - react
+    - redux
+    - firebase
+    - github hooks
+    - socket.io
+  style:
+    grid-column: 1 / span 2
+  github: https://github.com/blaadje/Shinkansen
+  preview: https://blaadje.github.io/Shinkansen/#/
+  src: shinkansen.png
+
+github-package-version-bumper:
+  name: Github package version bumper
+  description: Update your electron versions easily.
+  tags:
+    - javascript
+    - octokit
+  github: https://github.com/blaadje/github-package-version-bumper
+  style:
+    grid-column: 1 / span 2
+  facebook: null
+  src: packageupdater.png
+
+vue-grids-layout:
+  name: Vue grids layout
+  description: Create website layouts easily with colums/rows.
+  tags:
+    - vue
+    - jsx
+    - styled components
+  github: https://github.com/blaadje/vue-grids-layout
+  facebook: null
+  src: grids.png
+
+new-portfolio:
+  name: Portfolio (2017)
+  description: Latest portfolio.
+  tags:
+    - vuejs
+    - vue router
+    - vuex
+    - threejs
+  github: https://github.com/blaadje/portfolio-2017
+  preview: http://alexanderc.me/
+  src: newportfolio.png

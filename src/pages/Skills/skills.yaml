@@ -1,0 +1,67 @@
+---
+preProcessors:
+  - label: sass
+    pourcentage: 65
+  - label: less
+    pourcentage: 51
+  - label: pug
+    pourcentage: 75
+  - label: coffee
+    pourcentage: 43
+
+frontEnd:
+  - label: Html
+    pourcentage: 98
+  - label: Css
+    pourcentage: 90
+  - label: Javascript
+    pourcentage: 95
+
+designingTool:
+  - label: Figma
+    pourcentage: 90
+  - label: Sketch
+    pourcentage: 80
+  - label: Illustrator
+    pourcentage: 51
+
+backend:
+  - label: Node js
+    pourcentage: 60
+  - label: Python
+    pourcentage: 40
+  - label: ASP
+    pourcentage: 20
+  - label: Java
+    pourcentage: 40
+  - label: Ruby
+    pourcentage: 10
+  - label: Php
+    pourcentage: 60
+
+frameworks:
+  - label: Vue js
+    src: vue.png
+  - label: React js
+    src: react.png
+  - label: Laravel
+    src: laravel.png
+  - label: Semantic
+    src: semantic.png
+
+tools:
+  [
+    grunt,
+    gulp,
+    webpack,
+    npm,
+    yarn,
+    expressjs,
+    electron,
+    socketio,
+    arch linux,
+    macos,
+    vscode,
+    alacritty,
+    chunkwm,
+  ]

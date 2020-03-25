@@ -1,7 +1,8 @@
 <script>
-const THREE = require('three/three.min.js')
-const TWEEN = require('@tweenjs/tween.js')
-const TrackballControls = require('three-trackballcontrols')
+import debounce from 'lodash/debounce'
+import THREE from 'three/three.min.js'
+import TWEEN from '@tweenjs/tween.js'
+import TrackballControls from 'three-trackballcontrols'
 
 let listener
 
@@ -9,50 +10,7 @@ export default {
   props: {
     speed: { type: Number },
   },
-  data() {
-    return {
-      isChanged: false,
-    }
-  },
-  methods: {
-    changePage(e, camera, material) {
-      if (e.deltaY < 0 || this.isChanged) {
-        return
-      }
-
-      e.preventDefault()
-      e.stopPropagation()
-
-      new TWEEN.Tween(camera.position)
-        .to(
-          {
-            x: 23,
-            y: 324,
-            z: -100,
-          },
-          1000
-        )
-        .easing(TWEEN.Easing.Sinusoidal.InOut)
-        .start()
-      new TWEEN.Tween(material)
-        .to(
-          {
-            size: 10,
-          },
-          1000
-        )
-        .easing(TWEEN.Easing.Sinusoidal.InOut)
-        .start()
-
-      this.isChanged = true
-
-      setTimeout(() => {
-        this.$router.push({ name: 'page2', params: { animate: true } })
-      }, 1000)
-    },
-  },
   mounted() {
-    let container
     let camera,
       scene,
       renderer,
@@ -67,12 +25,13 @@ export default {
     let visibleParticles = []
     let visibleLines = []
 
-    let DISTANCE = 500
-    let RADIUS = 10
-    let AMOUNT = 200
-    let ZDEPTH = 0.83
-    let THICKNESS = 2
-    let SPEED = this.speed
+    const DISTANCE = 500
+    const RADIUS = 10
+    const AMOUNT = 200
+    const ZDEPTH = 0.83
+    const THICKNESS = 2
+    const SPEED = this.speed
+    const container = this.$refs.container
 
     let mouse = {
       x: 0,
@@ -98,12 +57,7 @@ export default {
       },
     }
 
-    init()
-    animate()
-
-    function init() {
-      container = document.querySelector('#container')
-
+    const init = () => {
       camera = new THREE.PerspectiveCamera(
         80,
         window.innerWidth / window.innerHeight,
@@ -126,7 +80,7 @@ export default {
       frustum = new THREE.Frustum()
       cameraViewProjectionMatrix = new THREE.Matrix4()
 
-      controls = new TrackballControls(camera)
+      controls = new TrackballControls(camera, container)
       controls.rotateSpeed = 1.0
       controls.zoomSpeed = 1.2
       controls.panSpeed = 0.8
@@ -216,17 +170,40 @@ export default {
       container.appendChild(renderer.domElement)
 
       updateFrustum()
-      window.addEventListener('mousemove', onDocumentMouseMove, false)
-      window.addEventListener('resize', onWindowResize, false)
+
+      container.addEventListener('mousemove', onDocumentMouseMove)
+      container.addEventListener('resize', onWindowResize)
+      container.addEventListener('wheel', changePage)
     }
 
-    function onWindowResize() {
+    const changePage = event => {
+      if (event.deltaY < 0) {
+        return
+      }
+
+      container.removeEventListener('wheel', changePage)
+      this.$emit('isScrolled')
+
+      new TWEEN.Tween(camera.position)
+        .to(
+          {
+            x: 1,
+            y: 1,
+            z: 1,
+          },
+          2100
+        )
+        .easing(TWEEN.Easing.Sinusoidal.InOut)
+        .start()
+    }
+
+    const onWindowResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight
       camera.updateProjectionMatrix()
       renderer.setSize(window.innerWidth, window.innerHeight)
     }
 
-    function onDocumentMouseMove(event) {
+    const onDocumentMouseMove = event => {
       mouse.x = event.clientX
       mouse.y = event.clientY
       camera.x = event.clientX
@@ -234,13 +211,13 @@ export default {
       mouse.updateParticlePosition()
     }
 
-    function animate() {
+    const animate = () => {
       requestAnimationFrame(animate)
       render()
       TWEEN.update()
     }
 
-    function render() {
+    const render = () => {
       controls.update()
       particlesAnimate()
       particlesDistance()
@@ -250,7 +227,7 @@ export default {
       renderer.render(scene, camera)
     }
 
-    function particlesAnimate() {
+    const particlesAnimate = () => {
       for (let i = 0, il = particles.vertices.length; i < il; i++) {
         let p = particles.vertices[i]
 
@@ -266,7 +243,7 @@ export default {
       particles.verticesNeedUpdate = true
     }
 
-    function particlesDistance() {
+    const particlesDistance = () => {
       visibleParticles = particles.vertices.filter(p =>
         frustum.containsPoint(p)
       )
@@ -284,7 +261,7 @@ export default {
       }
     }
 
-    function linesUpdate() {
+    const linesUpdate = () => {
       for (let i = 0; i < visibleLines.length; i++) {
         let l = visibleLines[i]
         l.geometry.computeLineDistances()
@@ -299,7 +276,7 @@ export default {
       }
     }
 
-    function mouseLinesUpdate() {
+    const mouseLinesUpdate = () => {
       for (let i = 0; i < mouselines.children.length; i++) {
         let l = mouselines.children[i]
         let p0 = toScreenXY(l.geometry.vertices[0])
@@ -320,7 +297,7 @@ export default {
       }
     }
 
-    function updateFrustum() {
+    const updateFrustum = () => {
       camera.updateMatrixWorld()
       camera.matrixWorldInverse.getInverse(camera.matrixWorld)
       cameraViewProjectionMatrix.multiplyMatrices(
@@ -332,7 +309,7 @@ export default {
       plane.lookAt(camera.position)
     }
 
-    function distanceParticles(p1, p2) {
+    const distanceParticles = (p1, p2) => {
       let dist = p1.distanceTo(p2)
 
       let pos = p1.nearParticles.indexOf(p2)
@@ -348,7 +325,7 @@ export default {
       }
     }
 
-    function distanceWithMouse(p) {
+    const distanceWithMouse = p => {
       let pxy = toScreenXY(p)
       let dx = mouse.x - pxy.x
       let dy = mouse.y - pxy.y
@@ -369,7 +346,7 @@ export default {
       }
     }
 
-    function createMouseLine(p) {
+    const createMouseLine = p => {
       let geometry = new THREE.Geometry()
       geometry.vertices.push(p, mouse.particle.position)
 
@@ -386,7 +363,7 @@ export default {
       mouselines.add(line)
     }
 
-    function createLine(p1, p2) {
+    const createLine = (p1, p2) => {
       let geometry = new THREE.Geometry()
       geometry.vertices.push(p1, p2)
 
@@ -404,7 +381,7 @@ export default {
       return line
     }
 
-    function toScreenXY(position) {
+    const toScreenXY = position => {
       let pos = position.clone()
       pos.applyProjection(cameraViewProjectionMatrix)
       return {
@@ -414,27 +391,23 @@ export default {
       }
     }
 
-    listener = event => {
-      this.changePage(event, camera, material)
-    }
-
-    document.addEventListener('wheel', listener)
-    document.addEventListener('DOMMouseScroll', listener)
-  },
-  destroyed() {
-    this.isChanged = true
-    document.querySelector('#container canvas').remove
+    init()
+    animate()
   },
 }
 </script>
+
 <template>
-  <div id="container" />
+  <div :class="$style.wrapper" ref="container" />
 </template>
-<style lang="sass">
-canvas
-  background: transparent
-  position: fixed
-  top: 0
-  pointer-events: none
-  z-index: 1
+
+<style lang="scss" module>
+.wrapper {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 </style>

@@ -1,68 +1,64 @@
 <template>
-  <div id="navbar">
+  <div :class="$style.wrapper">
     <router-link
-      :to="{ name: 'page1', params: { animate: true } }"
-      class="navigation"
+      v-for="{ name } in routes"
+      :key="name"
+      :to="{ name, params: { animate: true } }"
+      :class="$style.navigation"
+      :active-class="$style.active"
       exact
-    ></router-link>
-    <router-link
-      :to="{ name: 'page2', params: { animate: true } }"
-      class="navigation"
-      exact
-    ></router-link>
-    <router-link
-      :to="{ name: 'page3', params: { animate: true } }"
-      class="navigation"
-      exact
-    ></router-link>
-    <router-link
-      :to="{ name: 'page4', params: { animate: true } }"
-      class="navigation"
-      exact
-    ></router-link>
-    <router-link
-      :to="{ name: 'page5', params: { animate: true } }"
-      class="navigation"
-      exact
-    ></router-link>
+    />
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  computed: {
+    routes() {
+      return this.$router.options.routes.filter(({ path }) => path !== '*')
+    },
+  },
+}
 </script>
 
-<style lang="sass" scoped>
-#navbar
-  position: fixed
-  bottom: 5%
-  left: 0
-  text-align: center
-  right: 0
-  z-index: 4
-  margin: auto
-  .navigation
-    border-radius: 50%
-    display: inline-block
-    height: 28px
-    width: 28px
-    border: 5px solid white
-    background: white
-    position: relative
-    cursor: pointer
-    transition: background .8s
-    outline: none
-    &:not(:last-child)
-      margin-right: 1em
-      &:after
-        position: absolute
-        top: 50%
-        transform: translateY(-50%)
-        right: -26px
-        content: ''
-        width: 23px
-        background: white
-        height: 5px
-    &.router-link-active
-      background: transparent
+<style lang="scss" module>
+.wrapper {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+}
+
+.navigation {
+  border-radius: 50%;
+  display: inline-block;
+  height: 28px;
+  width: 28px;
+  border: 5px solid white;
+  background: white;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.8s;
+  outline: none;
+  &:not(:last-child) {
+    margin-right: 1em;
+    &:after {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: -26px;
+      content: '';
+      width: 23px;
+      background: white;
+      height: 5px;
+    }
+  }
+
+  &.active {
+    background: transparent;
+  }
+}
 </style>

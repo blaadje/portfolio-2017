@@ -1,94 +1,90 @@
 <template>
-  <div id="arrows">
-    <a href="#" @click.prevent="RouteLeft" class="prev">
-      <i class="arrow"></i>
-      <span>Prev</span>
+  <div v-if="shouldShow" :class="$style.wrapper">
+    <a href="#" @click.prevent="previousRoute" :class="$style.prev">
+      <BackIcon :class="$style.arrowIcon" />
+      <span :class="$style.text">Prev</span>
     </a>
-    <a href="#" v-if="!last" @click.prevent="RouteRight" class="next">
-      <i class="arrow"></i>
-      <span>Next</span>
+    <a href="#" v-if="!last" @click.prevent="nextRoute" :class="$style.next">
+      <span :class="$style.text">Next</span>
+      <NextIcon :class="$style.arrowIcon" />
     </a>
   </div>
 </template>
 
 <script>
+import BackIcon from '@assets/images/back'
+import NextIcon from '@assets/images/next'
+
+const FIRST_PAGE = 1
+const LAST_PAGE = 5
+
 export default {
+  components: {
+    BackIcon,
+    NextIcon,
+  },
   props: { last: { type: Boolean, default: false } },
-  data() {
-    return {
-      index: this.$route.meta.index,
-      show: true,
-    }
+  computed: {
+    shouldShow() {
+      return (
+        this.$route.meta.index !== FIRST_PAGE &&
+        this.$route.meta.index !== LAST_PAGE
+      )
+    },
   },
   methods: {
-    RouteLeft() {
-      if (this.$route.meta.index > 1) {
-        let page = this.$route.meta.index - 1
-        this.$router.push({ name: 'page' + page, params: { animate: true } })
-      }
+    previousRoute() {
+      this.$router.push({
+        name: `page${this.$route.meta.index - 1}`,
+        params: { animate: true },
+      })
     },
-    RouteRight() {
-      if (this.$route.meta.index < 5) {
-        let page = this.$route.meta.index + 1
-        this.$router.push({ name: 'page' + page, params: { animate: true } })
-      }
+    nextRoute() {
+      this.$router.push({
+        name: `page${this.$route.meta.index + 1}`,
+        params: { animate: true },
+      })
     },
   },
 }
 </script>
 
-<style lang="sass" scoped>
-#arrows
-  position: fixed
-  width: 100%
-  top: 50vh
-  .prev, .next
-    outline: none
-    position: absolute
-    perspective: 200
-    text-decoration: none
-    color: white
-    &:hover
-      span
-        opacity: 1
-        transform: translateY(-50%) translateX(0)
-    span
-      transition: all .4s
-      font-size: 1em
-      opacity: 0
-      position: absolute
-      top: 50%
-    .arrow
-      $size: 50px
-      transition: all .4s ease-in-out
-      display: inline-block
-      font-style: normal
-      border-radius: .2em
-      position: relative
-      content: ''
-      width: $size
-      height: $size
-      border-right: 0.2em solid white
-      border-top: 0.2em solid white
-  .prev
-    left: 3%
-    span
-      left: 50%
-      transform: translateY(-50%) translateX(-20px)
-    .arrow
-      transform: rotate(-135deg)
-    &:hover
-      .arrow
-        transform: rotate(-135deg) scale(1.1)
+<style lang="scss" module>
+.wrapper {
+  position: fixed;
+  padding: 0 40px;
+  right: 0;
+  left: 0;
+  top: 50vh;
+  z-index: 50;
+  display: flex;
+}
 
-  .next
-    right: 3%
-    span
-      right: 50%
-      transform: translateY(-50%) translateX(20px)
-    .arrow
-      transform: rotate(45deg)
-    &:hover
-      .arrow
-        transform: rotate(45deg) scale(1.1)
+.arrowIcon {
+  fill: white;
+  color: white;
+  width: 50px;
+  height: 50px;
+}
+
+.text {
+  font-size: 1em;
+}
+
+.prev,
+.next {
+  display: flex;
+  align-items: center;
+  outline: none;
+  text-decoration: none;
+  color: white;
+  transition: all 0.4s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.next {
+  margin-left: auto;
+}
 </style>

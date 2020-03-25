@@ -1,38 +1,46 @@
-<style lang="sass" scoped src="./style.sass"></style>
-<script>
-import topHeader from '@components/header'
-import indexBts from '@components/indexbuttons'
-import background from '@components/background'
-
-export default {
-  components: { background, topHeader, indexBts },
-}
-</script>
 <template>
-  <div class="content">
-    <background :speed="0.1" />
-    <topHeader accueil />
-    <div class="wrapper">
-      <div class="presentation">
-        <div class="text">
-          <h1>Web developer / Web designer</h1>
-          <p>
-            Hello everyone, my name is Alexandre. I'm 22 years old, welcome to
-            my Portfolio.
+  <div :class="$style.wrapper">
+    <Header />
+    <background :speed="0.1" @isScrolled="handleScroll" />
+    <Container :class="$style.container">
+      <div :class="$style.presentation">
+        <div :class="$style.text">
+          <h1 :class="$style.title">Front-end developer</h1>
+          <p :class="$style.description">
+            Hi, I'm Alexandre and I'm 24 years old. <br />Welcome to my
+            Portfolio.
           </p>
         </div>
-        <img
-          class="computer"
-          :src="require('@assets/images/computer.svg').default"
-          alt=""
-        />
+        <ComputerIcon :class="$style.computer" />
       </div>
-      <img
-        class="scroll"
-        :src="require('@assets/images/scroll.svg').default"
-        alt=""
-      />
-      <span class="scroll">Scroll down</span>
-    </div>
+      <ScrollIcon :class="$style.scroll" />
+      <span :class="$style.scroll">Scroll down</span>
+    </Container>
   </div>
 </template>
+
+<script>
+import Header from '@components/header'
+import background from '@components/background'
+import ComputerIcon from '@assets/images/computer'
+import ScrollIcon from '@assets/images/scroll'
+import Container from '@components/container'
+import { mapGetters } from 'vuex'
+
+export default {
+  components: {
+    Header,
+    background,
+    ComputerIcon,
+    ScrollIcon,
+    Container,
+  },
+  methods: {
+    handleScroll() {
+      this.$router.push({ name: 'page2', params: { animate: true } })
+    },
+  },
+}
+</script>
+
+<style lang="scss" module src="./style.scss"/>

@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" id="Layer_1"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 629 578" style="enable-background:new 0 0 629 578;" xml:space="preserve">
-<style type="text/css">
+	<style type="text/css">
 	.st0{opacity:0.25;fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
 	.st1{display:none;fill:#DD1919;}
 	.st2{fill:#095B69;}
@@ -18,48 +18,48 @@
 	.st12{font-family:'Omnes-Italic';-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;font-family: 'Nunito', sans-serif;}
 	.st13{font-size:14px;}
 </style>
-<circle class="st0" cx="312.3" cy="287.3" r="238"/>
-<rect x="-96" y="-68" class="st1" width="786" height="794"/>
-<line class="st0" x1="312.3" y1="49.3" x2="312.3" y2="524.3"/>
-<line class="st0" x1="74.3" y1="287.3" x2="550.3" y2="287.3"/>
-<line class="st0" x1="144" y1="119" x2="480.5" y2="455.6"/>
-<line class="st0" x1="144" y1="455.6" x2="480.5" y2="119"/>
-<circle class="st0" cx="311.8" cy="286.8" r="83"/>
-<circle class="st0" cx="311.8" cy="286.8" r="120.3"/>
-<circle class="st0" cx="311.8" cy="286.8" r="159"/>
-<circle class="st0" cx="311.8" cy="286.8" r="200"/>
-<circle class="st2" cx="311.8" cy="286.8" r="48.3"/>
-<circle class="st3" cx="311.8" cy="286.8" r="47.5"/>
-<rect x="305.7" y="218.1" class="st4" width="15" height="11.8"/>
-<text transform="matrix(1 0 0 1 305.7492 226.644)" class="st5 st6 st7">20</text>
-<rect x="305.7" y="180.1" class="st4" width="15" height="11.8"/>
-<text transform="matrix(1 0 0 1 305.7492 188.644)" class="st5 st6 st7">40</text>
-<rect x="304.8" y="142.9" class="st4" width="15" height="11.8"/>
-<text transform="matrix(1 0 0 1 304.7653 151.394)" class="st5 st6 st7">60</text>
-<rect x="304.8" y="102.1" class="st4" width="15" height="11.8"/>
-<text transform="matrix(1 0 0 1 304.7653 110.644)" class="st5 st6 st7">80</text>
-<rect x="301.8" y="62.6" class="st4" width="20.7" height="11.8"/>
-<text transform="matrix(1 0 0 1 301.7653 71.144)" class="st5 st6 st7">100</text>
-<path class="st5" d="M143.2,122.5L143.2,122.5c-2.2,0-4-1.8-4-4v0c0-2.2,1.8-4,4-4h0c2.2,0,4,1.8,4,4v0
+	<circle class="st0" cx="312.3" cy="287.3" r="238"/>
+	<rect x="-96" y="-68" class="st1" width="786" height="794"/>
+	<line class="st0" x1="312.3" y1="49.3" x2="312.3" y2="524.3"/>
+	<line class="st0" x1="74.3" y1="287.3" x2="550.3" y2="287.3"/>
+	<line class="st0" x1="144" y1="119" x2="480.5" y2="455.6"/>
+	<line class="st0" x1="144" y1="455.6" x2="480.5" y2="119"/>
+	<circle class="st0" cx="311.8" cy="286.8" r="83"/>
+	<circle class="st0" cx="311.8" cy="286.8" r="120.3"/>
+	<circle class="st0" cx="311.8" cy="286.8" r="159"/>
+	<circle class="st0" cx="311.8" cy="286.8" r="200"/>
+	<circle class="st2" cx="311.8" cy="286.8" r="48.3"/>
+	<circle class="st3" cx="311.8" cy="286.8" r="47.5"/>
+	<rect x="305.7" y="218.1" class="st4" width="15" height="11.8"/>
+	<text transform="matrix(1 0 0 1 305.7492 226.644)" class="st5 st6 st7">20</text>
+	<rect x="305.7" y="180.1" class="st4" width="15" height="11.8"/>
+	<text transform="matrix(1 0 0 1 305.7492 188.644)" class="st5 st6 st7">40</text>
+	<rect x="304.8" y="142.9" class="st4" width="15" height="11.8"/>
+	<text transform="matrix(1 0 0 1 304.7653 151.394)" class="st5 st6 st7">60</text>
+	<rect x="304.8" y="102.1" class="st4" width="15" height="11.8"/>
+	<text transform="matrix(1 0 0 1 304.7653 110.644)" class="st5 st6 st7">80</text>
+	<rect x="301.8" y="62.6" class="st4" width="20.7" height="11.8"/>
+	<text transform="matrix(1 0 0 1 301.7653 71.144)" class="st5 st6 st7">100</text>
+	<path class="st5" d="M143.2,122.5L143.2,122.5c-2.2,0-4-1.8-4-4v0c0-2.2,1.8-4,4-4h0c2.2,0,4,1.8,4,4v0
 	C147.2,120.7,145.4,122.5,143.2,122.5z"/>
-<path class="st5" d="M74.2,290.5L74.2,290.5c-2.2,0-4-1.8-4-4v0c0-2.2,1.8-4,4-4h0c2.2,0,4,1.8,4,4v0
+	<path class="st5" d="M74.2,290.5L74.2,290.5c-2.2,0-4-1.8-4-4v0c0-2.2,1.8-4,4-4h0c2.2,0,4,1.8,4,4v0
 	C78.2,288.7,76.4,290.5,74.2,290.5z"/>
-<path class="st5" d="M312.2,53L312.2,53c-2.2,0-4-1.8-4-4v0c0-2.2,1.8-4,4-4l0,0c2.2,0,4,1.8,4,4v0C316.2,51.2,314.4,53,312.2,53z"
+	<path class="st5" d="M312.2,53L312.2,53c-2.2,0-4-1.8-4-4v0c0-2.2,1.8-4,4-4l0,0c2.2,0,4,1.8,4,4v0C316.2,51.2,314.4,53,312.2,53z"
 	/>
-<path class="st5" d="M481.2,123L481.2,123c-2.2,0-4-1.8-4-4v0c0-2.2,1.8-4,4-4l0,0c2.2,0,4,1.8,4,4v0
+	<path class="st5" d="M481.2,123L481.2,123c-2.2,0-4-1.8-4-4v0c0-2.2,1.8-4,4-4l0,0c2.2,0,4,1.8,4,4v0
 	C485.2,121.2,483.4,123,481.2,123z"/>
-<path class="st5" d="M550.3,290.9L550.3,290.9c-2.2,0-4-1.8-4-4l0,0c0-2.2,1.8-4,4-4l0,0c2.2,0,4,1.8,4,4l0,0
+	<path class="st5" d="M550.3,290.9L550.3,290.9c-2.2,0-4-1.8-4-4l0,0c0-2.2,1.8-4,4-4l0,0c2.2,0,4,1.8,4,4l0,0
 	C554.3,289.1,552.5,290.9,550.3,290.9z"/>
-<path class="st5" d="M480.6,460.2L480.6,460.2c-2.2,0-4-1.8-4-4l0,0c0-2.2,1.8-4,4-4h0c2.2,0,4,1.8,4,4l0,0
+	<path class="st5" d="M480.6,460.2L480.6,460.2c-2.2,0-4-1.8-4-4l0,0c0-2.2,1.8-4,4-4h0c2.2,0,4,1.8,4,4l0,0
 	C484.6,458.4,482.8,460.2,480.6,460.2z"/>
-<path class="st5" d="M312,529.9L312,529.9c-2.2,0-4-1.8-4-4v0c0-2.2,1.8-4,4-4h0c2.2,0,4,1.8,4,4v0C316,528.1,314.2,529.9,312,529.9
+	<path class="st5" d="M312,529.9L312,529.9c-2.2,0-4-1.8-4-4v0c0-2.2,1.8-4,4-4h0c2.2,0,4,1.8,4,4v0C316,528.1,314.2,529.9,312,529.9
 	z"/>
-<path class="st5" d="M142.9,460.2L142.9,460.2c-2.2,0-4-1.8-4-4l0,0c0-2.2,1.8-4,4-4l0,0c2.2,0,4,1.8,4,4l0,0
+	<path class="st5" d="M142.9,460.2L142.9,460.2c-2.2,0-4-1.8-4-4l0,0c0-2.2,1.8-4,4-4l0,0c2.2,0,4,1.8,4,4l0,0
 	C146.9,458.4,145.1,460.2,142.9,460.2z"/>
-<path class="st8" d="M199,174.5c0,0,74.9-52.5,114.2-52c39.3,0.5,72,63.5,87.3,76.5c14.7,12.5,41.5,55.1,29.5,89.5
+	<path class="st8" d="M199,174.5c0,0,74.9-52.5,114.2-52c39.3,0.5,72,63.5,87.3,76.5c14.7,12.5,41.5,55.1,29.5,89.5
 	c-16,45.8-39.5,45.8-54.1,62.4c-15.5,17.7-20.7,52.7-63.7,52.2s-50.4-17.8-76.7-40.1s-38.7-47-37.8-75.7
 	C199.5,231.5,175.5,191.9,199,174.5z"/>
-<path class="st9" d="M313.2,404.6c-0.3,0-0.6,0-0.9,0c-34.8-0.4-46.9-11.8-63.6-27.6c-4.3-4.1-8.8-8.3-14.1-12.8
+	<path class="st9" d="M313.2,404.6c-0.3,0-0.6,0-0.9,0c-34.8-0.4-46.9-11.8-63.6-27.6c-4.3-4.1-8.8-8.3-14.1-12.8
 	c-26.7-22.6-39.2-47.8-38.3-76.9c0.7-21.9-2.6-41-5.4-57.8c-4.5-26.2-7.7-45,7.3-56.1l0,0c3.1-2.1,75-52.2,114.5-52.2
 	c0.2,0,0.4,0,0.6,0c29.2,0.4,54.1,33.4,72.2,57.5c6.4,8.5,12,15.9,16,19.3c14,11.9,42.5,55.1,29.9,91.1
 	c-11.2,32.2-26.1,42-39.1,50.7c-5.6,3.7-10.9,7.2-15.2,12.2c-3.9,4.5-7.1,10.1-10.6,16C356.5,385.1,345.2,404.6,313.2,404.6z
@@ -67,20 +67,23 @@
 	c16.8,15.9,27.9,26.4,61.6,26.8c0.3,0,0.6,0,0.9,0c30.4,0,41.2-18.7,50.7-35.2c3.5-6.1,6.8-11.8,10.9-16.5
 	c4.6-5.3,10.1-8.9,15.8-12.7c12.7-8.4,27.1-18,38-49.2c6.5-18.6,1-38.5-4.7-51.9c-7.1-16.5-17.3-30-24.3-36
 	c-4.3-3.7-9.9-11.2-16.5-19.8C366.3,158,341,124.4,313.2,124c-0.2,0-0.4,0-0.5,0C274.3,124,201.3,174.7,199.9,175.7z"/>
-<rect x="266.4" y="14.6" class="st4" width="202.7" height="42.7"/>
-<text transform="matrix(1 0 0 1 266.4159 28.9324)"><tspan x="0" y="0" class="st5 st10 st11">Javascript </tspan><tspan x="95" y="0" class="st5 st12 st13">(node)</tspan></text>
-<rect x="488.9" y="86" class="st4" width="202.7" height="42.7"/>
-<text transform="matrix(1 0 0 1 488.9269 100.2579)" class="st5 st10 st11">Python</text>
-<rect x="574.3" y="278.6" class="st4" width="202.7" height="42.7"/>
-<text transform="matrix(1 0 0 1 574.2602 292.9246)" class="st5 st10 st11">ASP</text>
-<rect x="488.9" y="473.3" class="st4" width="202.7" height="42.7"/>
-<text transform="matrix(1 0 0 1 488.9269 487.5913)" class="st5 st10 st11">Java</text>
-<rect x="293.4" y="547.3" class="st4" width="202.7" height="42.7"/>
-<text transform="matrix(1 0 0 1 293.4159 561.5913)" class="st5 st10 st11">Bash</text>
-<rect x="100.7" y="480.1" class="st4" width="202.7" height="42.7"/>
-<text transform="matrix(1 0 0 1 100.7492 494.3963)" class="st5 st10 st11">Vb.net</text>
-<rect x="14.1" y="282" class="st4" width="202.7" height="42.7"/>
-<text transform="matrix(1 0 0 1 14.0826 296.3271)" class="st5 st10 st11">Ruby</text>
-<rect x="95.4" y="92.5" class="st4" width="202.7" height="42.7"/>
-<text transform="matrix(1 0 0 1 95.4159 106.8413)" class="st5 st10 st11">PHP</text>
+	<rect x="266.4" y="14.6" class="st4" width="202.7" height="42.7"/>
+	<text transform="matrix(1 0 0 1 266.4159 28.9324)">
+		<tspan x="0" y="0" class="st5 st10 st11">Javascript </tspan>
+		<tspan x="95" y="0" class="st5 st12 st13">(node)</tspan>
+	</text>
+	<rect x="488.9" y="86" class="st4" width="202.7" height="42.7"/>
+	<text transform="matrix(1 0 0 1 488.9269 100.2579)" class="st5 st10 st11">Python</text>
+	<rect x="574.3" y="278.6" class="st4" width="202.7" height="42.7"/>
+	<text transform="matrix(1 0 0 1 574.2602 292.9246)" class="st5 st10 st11">ASP</text>
+	<rect x="488.9" y="473.3" class="st4" width="202.7" height="42.7"/>
+	<text transform="matrix(1 0 0 1 488.9269 487.5913)" class="st5 st10 st11">Java</text>
+	<rect x="293.4" y="547.3" class="st4" width="202.7" height="42.7"/>
+	<text transform="matrix(1 0 0 1 293.4159 561.5913)" class="st5 st10 st11">Bash</text>
+	<rect x="100.7" y="480.1" class="st4" width="202.7" height="42.7"/>
+	<text transform="matrix(1 0 0 1 100.7492 494.3963)" class="st5 st10 st11">Vb.net</text>
+	<rect x="14.1" y="282" class="st4" width="202.7" height="42.7"/>
+	<text transform="matrix(1 0 0 1 14.0826 296.3271)" class="st5 st10 st11">Ruby</text>
+	<rect x="95.4" y="92.5" class="st4" width="202.7" height="42.7"/>
+	<text transform="matrix(1 0 0 1 95.4159 106.8413)" class="st5 st10 st11">PHP</text>
 </svg>

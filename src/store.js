@@ -7,6 +7,10 @@ const state = {
   isPreloading: false,
 }
 
+const getters = {
+  isPreloading: state => state.isPreloading,
+}
+
 const mutations = {
   beginPreload(state) {
     state.isPreloading = true
@@ -19,10 +23,6 @@ const mutations = {
 const actions = {
   beginPreload: ({ commit }) => commit('beginPreload'),
   endPreload: ({ commit }) => commit('endPreload'),
-}
-
-const getters = {
-  isPreloading: state => state.isPreloading,
 }
 
 export default new Vuex.Store({

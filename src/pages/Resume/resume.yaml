@@ -1,0 +1,40 @@
+---
+introduction:
+  "Passionated by informatics since forever, I've chosen to persue my career in the web universe.
+  And, As the web is constantly evolving, I never stop improving myself by doing side projects<br /><br />
+  Apart from developing, I spend my time playing piano (classical), guitar (folk,
+  electric) and drums occasionally. I love to compose acoustic or
+  electronic music too. I'm not the sporty guy but I tend to maintain a physical activity 😄"
+experiences:
+  2012:
+    work:
+      label: Futurosoft
+      description: '<i>Publisher of the G8 software dedicated to professionals.</i>
+      <div><br />Diagnosed & repaired informatic hardware - customer care.</div>'
+  2014:
+    work:
+      label: Ldb-rs
+      description: '<i>Subcontracting company in infogerance, security & wiring.</i>
+      <div><br />Installed network systems & developed a small app to manage them.</div>'
+    school:
+      label: Obtaining Baccalaureate
+  2015:
+    work:
+      label: Waldata
+      description: "<i>Forerunner of technical analysis in France.</i>
+      <div><br />Customer care, developed/designed Waldata's website & collaborative drawing app.</div>"
+  2016:
+    school:
+      label: Obtaining BTS
+  2017:
+    work:
+      label: Wisembly
+      description: '<i>Company selling meeting solutions.</i>
+      <div><br />Developed the application in team</div>'
+    school:
+      label: Obtaining Bachelor
+  2018:
+    work:
+      label: Backmarket
+      description: '<i>Marketplace selling refurbished electronics.</i>
+      <div><br />Developing frontend of the customer satisfaction part of the website (reviews, customer requests)</div>'
