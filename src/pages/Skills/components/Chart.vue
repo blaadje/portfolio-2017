@@ -1,6 +1,7 @@
 <script>
 import { Radar } from 'vue-chartjs'
 import Chart from 'chart.js'
+import { sleep } from '../../../utils'
 
 Chart.defaults.global.defaultFontFamily = "'Nunito', sans-serif"
 Chart.defaults.global.defaultFontColor = 'white'

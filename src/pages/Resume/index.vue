@@ -36,14 +36,13 @@
 
 <script>
 import Header from '@components/header'
-import ExperiencesIcon from '@assets/images/experiences'
 import Container from '@components/container'
 import ArrowIcon from '@assets/images/arrow'
 import Timeline from './components/Timeline'
-import resume from './resume.yaml'
+import resume from './resume'
 
 export default {
-  components: { ExperiencesIcon, ArrowIcon, Header, Container, Timeline },
+  components: { ArrowIcon, Header, Container, Timeline },
   mounted() {
     this.$nextTick(_ => {
       this.$store.dispatch('endPreload')

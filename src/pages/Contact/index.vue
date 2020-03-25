@@ -67,8 +67,8 @@ import arrows from '@components/arrows'
 import ContactPhoneIcon from '@assets/images/contactPhone'
 import ContactEmailIcon from '@assets/images/contactEmail'
 import ContactPlaceIcon from '@assets/images/contactPlace'
-import Container from '@components/Container'
-import GithubIcon from '@assets/images/github-logo.svg'
+import Container from '@components/container'
+import GithubIcon from '@assets/images/github-logo'
 
 export default {
   components: {

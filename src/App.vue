@@ -31,7 +31,7 @@ import ButtonNav from './components/indexbuttons'
 import Preloader from './components/preloader'
 import Arrows from './components/arrows'
 import { sleep } from './utils'
-import projects from './pages/Projects/projects.yaml'
+import projects from './pages/Projects/projects'
 
 export default {
   components: {

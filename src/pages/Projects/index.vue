@@ -61,7 +61,7 @@
 
 <script>
 import Header from '@components/header'
-import projects from './projects.yaml'
+import projects from './projects'
 
 export default {
   components: {

@@ -78,7 +78,7 @@ import Container from '@components/container'
 import Paper from './components/Paper'
 import Gauge from './components/Gauge'
 import Chart from './components/Chart'
-import skills from './skills.yaml'
+import skills from './skills'
 
 export default {
   components: { SkillGraphIcon, Header, Container, Paper, Gauge, Chart },

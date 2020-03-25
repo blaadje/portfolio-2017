@@ -1,5 +1,5 @@
 <script>
-import projects from '../projects.yaml'
+import projects from '../projects'
 import CloseIcon from '@assets/images/close'
 import GithubIcon from '@assets/images/github-logo'
 import FacebookIcon from '@assets/images/facebook-logo-button'

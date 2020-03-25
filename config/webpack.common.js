@@ -6,7 +6,7 @@ module.exports = {
   resolve: {
     symlinks: false,
     cacheWithContext: false,
-    extensions: ['.vue', '.js', '.svg', 'yaml'],
+    extensions: ['.vue', '.js', '.svg', '.yaml'],
     alias: {
       ['@assets']: path.resolve(__dirname, '../src/assets/'),
       ['@components']: path.resolve(__dirname, '../src/components'),
@@ -26,18 +26,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        issuer: /\.(vue|js|ts|svg)$/,
-        use: [
-          // This loader compiles .svg file to .vue file
-          // So we use `vue-loader` after it
-          'vue-loader',
-          {
-            loader: 'svg-to-vue-component/loader',
-            options: {
-              svgoConfig: {},
-            },
-          },
-        ],
+        use: ['babel-loader', 'vue-svg-loader'],
       },
       {
         test: /\.(png|jpg|jpeg|gif|ttf|eot|woff|pdf)$/,
