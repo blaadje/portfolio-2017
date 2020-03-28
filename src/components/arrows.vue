@@ -56,6 +56,7 @@ export default {
   right: 0;
   left: 0;
   top: 50vh;
+  pointer-events: none;
   z-index: 50;
   display: flex;
 }
@@ -73,6 +74,7 @@ export default {
 
 .prev,
 .next {
+  pointer-events: all;
   display: flex;
   align-items: center;
   outline: none;

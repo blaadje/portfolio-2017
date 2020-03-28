@@ -1,5 +1,6 @@
 .container {
   pointer-events: none;
+  height: 100%;
 }
 
 .wrapper {
@@ -12,13 +13,16 @@
 }
 
 .presentation {
-  margin-top: 170px;
-  position: relative;
+  max-width: 1200px;
+  width: 100%;
   z-index: 8;
   font-family: 'Nunito', sans-serif;
+  position: absolute;
   top: 0;
   bottom: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   height: 100%;
   display: flex;
   justify-content: space-between;

@@ -12,6 +12,8 @@
     <div
       :style="{ width: `calc(100% / ${dates.length}` }"
       :class="$style.dateWrapper"
+      @mouseenter="() => onMouseEnter(index)"
+      @mouseleave="() => onMouseLeave(index)"
       v-for="(date, index) in dates"
       :key="date"
     >
@@ -21,17 +23,20 @@
         </div>
         <PinUpIcon
           v-if="items[date] && items[date].work"
-          :class="$style.pinIcon"
+          :class="[$style.pinIcon, $style.workPinIcon]"
         />
         <div
           v-if="items[date] && items[date].work"
           :class="[$style.pinLine, $style.workPinLine]"
         />
-        <div
-          v-if="items[date] && items[date].work"
-          :class="$style.description"
-          v-html="items[date].work.description"
-        />
+        <div ref="descriptions" :class="$style.descriptionWrapper" Wrapper>
+          <div
+            :class="$style.description"
+            v-html="
+              items[date] && items[date].work && items[date].work.description
+            "
+          ></div>
+        </div>
       </div>
       <div :class="$style.bottomWrapper">
         <div :class="$style.middle">
@@ -89,6 +94,37 @@ export default {
     }
   },
   methods: {
+    onMouseLeave(index) {
+      const element = this.$refs.descriptions[index]
+      element.style.animation = null
+      element.offsetHeight
+
+      if (
+        element.getBoundingClientRect().right >
+        this.$refs.wrapper.getBoundingClientRect().right
+      ) {
+        element.style.animation = 'leaveLeft 0.8s ease forwards'
+        return
+      }
+
+      element.style.animation = 'leaveRight 0.8s ease forwards'
+    },
+    onMouseEnter(index) {
+      const element = this.$refs.descriptions[index]
+      element.style.animation = null
+      element.offsetHeight
+
+      if (
+        element.getBoundingClientRect().right >
+        this.$refs.wrapper.getBoundingClientRect().right
+      ) {
+        element.style.animation = 'enterLeft 0.8s ease forwards'
+        element.style.alignItems = 'flex-end'
+        return
+      }
+
+      element.style.animation = 'enterRight 0.8s ease forwards'
+    },
     getColor() {
       if (index > this.colors.length - 1) {
         index = 0
@@ -153,37 +189,39 @@ export default {
   height: 100%;
 }
 
-.description {
+.descriptionWrapper {
   opacity: 0;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.8s ease, opacity 0.4s linear;
-  transform: translateX(-35px);
   position: absolute;
   font-size: 0.9rem;
-  width: 300px;
+  width: 500px;
   padding: 1.5rem;
   padding-top: 0;
-  left: calc(50% + 1px);
+  left: calc(50% + 0px);
   top: 65px;
-  z-index: 1;
+  z-index: 100;
+  transform: translateX(0);
 }
 
 .middle {
   width: 100%;
 }
 
-.work:hover {
-  .description {
+.dateWrapper:hover {
+  z-index: 1000;
+  .descriptionWrapper {
     opacity: 1;
-    transform: translateX(0);
   }
-  .pinLine,
-  .pinIcon {
+  .workPinLine,
+  .workPinIcon {
     transition: all 0.8s ease-in-out;
   }
-  .pinLine {
+  .workPinLine {
     background: rgba(white, 0.6);
   }
-  .pinIcon {
+  .workPinIcon {
     fill: rgba(white, 0.6);
   }
 }
@@ -192,7 +230,7 @@ export default {
   width: 1px;
   background: #3e4050;
   height: 100%;
-  z-index: 10;
+  z-index: 2;
   position: relative;
 }
 
@@ -272,5 +310,46 @@ export default {
       rgba(black, 0) 100%
     );
   transform-origin: top left;
+}
+</style>
+
+<style lang="scss">
+@keyframes enterLeft {
+  0% {
+    transform: translateX(-80%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes enterRight {
+  0% {
+    transform: translateX(-35px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes leaveLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  80% {
+    transform: translateX(-80%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes leaveRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-35px);
+  }
 }
 </style>
