@@ -1,4 +1,14 @@
 ---
+flappybird:
+  name: Flappy-bird
+  description: A game code challenge to make working flappybird in 1 hour
+  tags:
+    - html
+    - js
+  src: flappybird.png
+  github: https://github.com/blaadje/flappybird
+  preview: https://flappybird-blaadje.netlify.app/
+
 drawer:
   name: Creative Drawer
   description: A CMS allowing drawers to quickly create showcases websites.
@@ -27,12 +37,15 @@ todolist:
   src: todolist.png
 
 immo:
+  noTray: true
   name: Immo
   description: '"Immo" project was a school project proposing real estate properties to buyers and renters.'
   tags:
     - html
     - css
     - php
+  style:
+    grid-column: 1 / span 2
   github: https://github.com/blaadje/immo
   src: immoBg.png
 
