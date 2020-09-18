@@ -305,7 +305,7 @@ export default {
       to top left,
       rgba(black, 0) 0%,
       rgba(black, 0) calc(50% - 1px),
-      rgba(white, 1) 50%,
+      rgba(white, 0.3) 50%,
       rgba(black, 0) calc(50% + 1px),
       rgba(black, 0) 100%
     );

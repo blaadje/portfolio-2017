@@ -40,10 +40,10 @@ backend:
     pourcentage: 60
 
 frameworks:
-  - label: Vue js
-    src: vue.png
   - label: React js
     src: react.png
+  - label: Vue js
+    src: vue.png
   - label: Laravel
     src: laravel.png
   - label: Semantic
@@ -51,6 +51,9 @@ frameworks:
 
 tools:
   [
+    yabai (chunkwm),
+    canvas2d,
+    three.js,
     grunt,
     gulp,
     webpack,
@@ -59,9 +62,8 @@ tools:
     expressjs,
     electron,
     socketio,
-    arch linux,
-    macos,
-    vscode,
-    alacritty,
-    chunkwm,
+    arch linux (OS),
+    macos (OS),
+    vscode (IDE),
+    alacritty (terminal),
   ]

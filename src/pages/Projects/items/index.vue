@@ -24,7 +24,7 @@ export default {
       <div :class="$style.topWrapper">
         <div :class="$style.header">
           <h1>{{ project.name }}</h1>
-          <p>{{ project.description }}</p>
+          <p v-html="project.description" />
           <div :class="$style.tags">
             <span
               :class="[$style.button, $style.tags]"

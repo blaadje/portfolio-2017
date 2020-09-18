@@ -6,7 +6,7 @@
       <div :class="$style.intro">
         <h3 :class="$style.subTitle">Introducing me</h3>
         <hr :class="$style.divider" />
-        <p v-html="resume.introduction" />
+        <p :class="$style.introduction" v-html="resume.introduction" />
       </div>
       <div :class="$style.experience">
         <h3 :class="$style.subTitle">Here are my experiences and diplomas</h3>

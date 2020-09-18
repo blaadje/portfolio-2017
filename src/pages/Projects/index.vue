@@ -11,7 +11,7 @@
     <h2>Projects</h2>
     <div :class="$style.grid">
       <router-link
-        v-for="({ description, isFullSize, noTray, tags, src, name, style },
+        v-for="({ description, noTray, tags, src, name, style },
         index) in projects"
         :key="index"
         :class="$style.link"
@@ -39,9 +39,10 @@
           >
             <div :class="$style.firstContent">
               <h3>{{ name }}</h3>
-              <p>
-                {{ description }}
-              </p>
+              <p
+                :class="$style.description"
+                v-html="getCroppedDescription(description)"
+              />
             </div>
             <div :class="$style.hiddenContent">
               <span v-for="tag in tags" :key="tag">{{ tag }}</span>
@@ -74,6 +75,18 @@ export default {
     projects: () => projects,
     projectsLength() {
       return Object.keys(this.projects).length + 1
+    },
+  },
+  methods: {
+    getCroppedDescription(description) {
+      const maxCharacters = 20
+
+      const string = description.split(' ')
+      const isCropped = string.length > maxCharacters
+
+      return isCropped
+        ? [...string.slice(0, maxCharacters), '...'].join(' ')
+        : description
     },
   },
   mounted() {
@@ -188,6 +201,7 @@ $opacity: 0.85;
 
 .firstContent {
   opacity: 1;
+  flex-grow: 1;
   height: 100%;
   width: 100%;
   display: flex;

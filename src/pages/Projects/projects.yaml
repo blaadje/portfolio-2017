@@ -1,4 +1,22 @@
 ---
+oceanjs:
+  name: Oceanjs (work in progress)
+  description: 'A challenge to make the most realistic ocean with just canvas2d.
+    Idea is to create a dynamic texture containing the ocean height field based on butterfly texture and IFFT transformation.
+    Vertex map displacement is used from the texture. </br></br>
+    Atm, implementation with webworker is used to gain performance for drawing
+    however working with my slowish mac doesnt reflect the gain.</br></br>
+    Performance will really need to improve to draw as much triangles as possible to get smooth waves.</br>
+    Also the map displacement will need to be smoothed before retrieve height. (screen resolution might not reflect the best rendering, will work later on it)'
+  tags:
+    - html
+    - webworkers
+    - canvas 2d
+    - js
+  src: ocean.png
+  github: https://github.com/blaadje/oceanjs
+  preview: https://deploy-preview-2--naughty-perlman-a99733.netlify.app/
+
 flappybird:
   name: Flappy-bird
   description: A game code challenge to make working flappybird in 1 hour
@@ -44,8 +62,6 @@ immo:
     - html
     - css
     - php
-  style:
-    grid-column: 1 / span 2
   github: https://github.com/blaadje/immo
   src: immoBg.png
 
