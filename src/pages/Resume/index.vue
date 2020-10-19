@@ -20,7 +20,7 @@
         <a
           :class="$style.button"
           target="_blank"
-          :href="require('@assets/moncv2.pdf').default"
+          :href="require('@assets/cv.pdf').default"
         >
           <div :class="$style.squares">
             <div :class="$style.firstSquare"></div>
@@ -44,7 +44,7 @@ import resume from './resume'
 export default {
   components: { ArrowIcon, Header, Container, Timeline },
   mounted() {
-    this.$nextTick(_ => {
+    this.$nextTick((_) => {
       this.$store.dispatch('endPreload')
     })
   },
