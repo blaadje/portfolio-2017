@@ -7,7 +7,7 @@
         <div :class="$style.text">
           <h1 :class="$style.title">Front-end developer</h1>
           <p :class="$style.description">
-            Hi, I'm Alexandre and I'm 24 years old. <br />Welcome to my
+            Hi, I'm Alexandre and I'm 25 years old. <br />Welcome to my
             Portfolio.
           </p>
         </div>
