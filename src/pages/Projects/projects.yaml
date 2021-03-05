@@ -1,4 +1,15 @@
 ---
+chessjs:
+  name: Chessjs
+  description: 'A challenge to make chess game with optimised composition without any outside resource in 2 days'
+  tags:
+    - html
+    - canvas 2d
+    - js
+  src: chess.png
+  github: https://github.com/blaadje/chess
+  preview: https://blaadje-chess.netlify.app/
+
 oceanjs:
   name: Oceanjs (work in progress)
   description: 'A challenge to make the most realistic ocean with just canvas2d.
