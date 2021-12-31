@@ -36,11 +36,16 @@ experiences:
     work:
       label: Wisembly
       description: '<i>Company selling meeting solutions.</i>
-      <div><br />Developed the application in team</div>'
+      <div><br />Developed the application in team.</div>'
     school:
       label: Obtaining Bachelor
   2018:
     work:
       label: Backmarket
       description: '<i>Marketplace selling refurbished electronics.</i>
-      <div><br />Developing frontend of the customer satisfaction part of the website (reviews, customer requests)</div>'
+      <div><br />Developing frontend of the customer satisfaction part of the website (reviews, customer requests).</div>'
+  2021:
+    work:
+      label: Japhy
+      description: '<i>Petcare business.</i>
+      <div><br />Taking care of global frontend architecture, refactoring legacy parts for maintainability, creating new features.</div>'

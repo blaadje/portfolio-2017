@@ -158,18 +158,8 @@ export default {
       }
     },
     dates() {
-      const dates = Object.keys(this.items)
-        .map(date => parseInt(date))
-        .sort((a, b) => b > a)
-      const first = dates[0]
-      const last = dates[dates.length - 1]
-      const timelineDates = [first]
-
-      while (timelineDates[timelineDates.length - 1] < last) {
-        timelineDates.push(timelineDates[timelineDates.length - 1] + 1)
-      }
-
-      return timelineDates
+      return Object.keys(this.items)
+        .map(Number)
     },
   },
 }

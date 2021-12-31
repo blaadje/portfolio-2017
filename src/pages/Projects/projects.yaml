@@ -1,4 +1,15 @@
 ---
+snake:
+  name: Snake game
+  description: 'A little challenge to make a basic snake game'
+  tags:
+    - html
+    - canvas 2d
+    - js
+  src: snakegame.png
+  github: https://github.com/blaadje/snake-game
+  preview: https://zealous-murdock-351b3e.netlify.app
+
 chessjs:
   name: Chessjs
   description: 'A challenge to make chess game with optimised composition without any outside resource in 2 days'
